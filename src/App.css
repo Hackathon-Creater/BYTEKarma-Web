@@ -1,0 +1,69 @@
+.App {
+  text-align: center;
+}
+/* html * {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+} */
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.sp{
+  background-color: #f8f9fa;
+  /* #b3d7ff5e; */
+ /* margin-top: 3%; */
+ margin-bottom: 3%;
+ margin-left:6%;
+ margin-right:3%;
+  height: 85vh; 
+  width: 80%;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.bgstyle{
+background-image: url("./images/Hsbc_Image_edit.jpg");
+height: 100vh;
+width: 100%;
+background-repeat: no-repeat;
+
+}
+
+.form-container{
+color:#fff;
+border:0px solid #fff;
+padding: 50px 60px;
+margin-top: 20vh;
+/* margin-left: 10vh; */
+box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75);
+
+
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
