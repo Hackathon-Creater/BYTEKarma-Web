@@ -6,7 +6,7 @@ import { NavigationBar } from './components/NavigationBar';
 import { Login } from './login/Login';
 import  Home  from './Home/Home';
 import { About } from './About/About';
-import { Search } from './Search/Search';
+import  Search   from './Search/Search';
 import  DataUpload  from './DataUpload/DataUplaod';
 import { PrivacyPolicy } from './PrivacyPolicy/PrivacyPolicy';
 import { Help } from './Help/Help';

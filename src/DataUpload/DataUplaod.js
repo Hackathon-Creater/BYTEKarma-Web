@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Card, ProgressBar ,Alert} from "react-bootstrap";
 import axios from 'axios';
 
 //  import 'mdbreact/dist/css/mdb-free.css';
@@ -27,17 +28,21 @@ class DataUpload extends Component {
         
         // Update the formData object 
         formData.append( 
-            "myFile", 
+            "file", 
             this.state.selectedFile, 
             this.state.selectedFile.name 
         ); 
-        
+        // let config = {
+        //     headers: {
+        //       header1: value,
+        //     }
+        //   }
         // Details of the uploaded file 
         console.log(this.state.selectedFile); 
         
         // Request made to the backend api 
         // Send formData object 
-        axios.post("api/uploadfile", formData); 
+        axios.post("http://localhost:5000/upload", formData); 
         }; 
         
         // File content to be displayed after 
@@ -82,7 +87,9 @@ class DataUpload extends Component {
   </div>
   <div class="col-sm-7">
   <div className="fileupload"> 
-                    
+                        <Alert  variant="success">
+                            This is a success alert—check it out!
+                        </Alert>
                     <h3> 
                       File upload 
                     </h3> 
