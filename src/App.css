@@ -59,6 +59,13 @@ box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75);
 
 
 }
+.footerfixed{
+  position: fixed;
+bottom: 0;
+width: 100%;
+background-color: red;
+
+}
 .privacyimage{
   background-image: url("./images/policy.jpg");
 
@@ -76,6 +83,33 @@ margin-left: 6%;
     /* margin: 2%; */
     margin-top: 9%;
     margin-left: 2%;
+}
+
+.faqimage{
+  background-image: url("./images/FAQ.png");
+
+background-repeat: no-repeat;
+padding: 7%;
+}
+.contactusimage{
+  background-image: url("./images/contactus.png");
+
+background-repeat: no-repeat;
+/* margin-top: 9%;
+margin-left: 6%; */
+}
+
+.aboutusimage{
+  background-image: url("./images/aboutus.png");
+
+background-repeat: no-repeat;
+/* margin-top: 9%;
+margin-left: 6%; */
+}
+.helppagerow{
+  
+  margin-top: 6%;
+
 }
 @keyframes App-logo-spin {
   from {
