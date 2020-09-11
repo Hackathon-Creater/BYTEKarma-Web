@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import { Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
 import { BrowserRouter as Router, Route, Switch,Redirect } from "react-router-dom";
 import { NavigationBar } from './components/NavigationBar';
 import { Login } from './login/Login';
@@ -10,13 +11,12 @@ import  Search   from './Search/Search';
 import  DataUpload  from './DataUpload/DataUplaod';
 import { PrivacyPolicy } from './PrivacyPolicy/PrivacyPolicy';
 import { Help } from './Help/Help';
-
-
+import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import Sidebar from './components/SideBar';
-
-
 import './App.css';
 import Footer from './components/Footer';
+import searchResult from './searchResult/searchResult';
+
 var login11=false;
 class App extends React.Component {
   constructor(props) {
@@ -139,6 +139,7 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/home" component={Home} />
               <Route exact path="/search" component={Search} />
+              <Route exact path="/searchResult" component={searchResult} />
               <Route exact path="/dataupload" component={DataUpload} />
               <Route exact path="/policy" component={PrivacyPolicy} />
               

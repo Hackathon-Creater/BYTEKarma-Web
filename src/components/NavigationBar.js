@@ -58,9 +58,11 @@ export const NavigationBar = () => (
                <Nav.Item><Nav.Link href="/help">Help</Nav.Link></Nav.Item> 
              </Nav>
             <Navbar.Text>
-            &nbsp; &nbsp; |&nbsp; Signed in as: <a href="/"> <i class="fas fa-user">{localStorage.getItem("name")}</i></a>
+            &nbsp; &nbsp; |&nbsp; Signed in as:  &nbsp; <a href="/"> <i class="fas fa-user">&nbsp; {localStorage.getItem("name")}</i></a>
             </Navbar.Text>
-          
+            <Navbar.Text>  &nbsp; &nbsp;  <a href="/"> <i class="fas fa-sign-out-alt">&nbsp; Log out &nbsp;</i> </a></Navbar.Text>
+            
+           
         </Navbar.Collapse>
     </Navbar>
 )
