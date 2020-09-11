@@ -5,13 +5,21 @@ import axios from 'axios';
 //  import 'mdbreact/dist/css/mdb-free.css';
 //  import "./assets/scss/mdb-free.scss/";
 // import './DataUpload.css';
+
+
+
 class DataUpload extends Component {
+    
+    
     state = { 
 
         // Initially, no file is selected 
-        selectedFile: null
-        }; 
+        selectedFile: null,
+        showalert:false
+        };
         
+   
+     
         // On file select (from the pop up) 
         onFileChange = event => { 
         
@@ -38,11 +46,18 @@ class DataUpload extends Component {
         //     }
         //   }
         // Details of the uploaded file 
-        console.log(this.state.selectedFile); 
-        
+
+        var statusRes="";
         // Request made to the backend api 
         // Send formData object 
-        axios.post("http://localhost:5000/upload", formData); 
+        axios.post("http://localhost:5000/upload", formData).then(function (response) {
+            console.log(response.status); 
+            statusRes=response.status;
+    
+          }); 
+          
+          this.setState({showalert:true});
+
         }; 
         
         // File content to be displayed after 
@@ -87,7 +102,7 @@ class DataUpload extends Component {
   </div>
   <div class="col-sm-7">
   <div className="fileupload"> 
-                        <Alert  variant="success">
+                        <Alert  show={this.state.showalert} variant="success">
                             This is a success alert—check it out!
                         </Alert>
                     <h3> 

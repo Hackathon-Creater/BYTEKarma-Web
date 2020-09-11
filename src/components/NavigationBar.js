@@ -54,11 +54,11 @@ export const NavigationBar = () => (
               <Nav.Item><Nav.Link href="/dataupload">DataUpload</Nav.Link></Nav.Item> 
               <Nav.Item><Nav.Link href="/policy">Privacy Policy</Nav.Link></Nav.Item> 
             
-               <Nav.Item><Nav.Link href="/carepackage">Care Package &nbsp; &nbsp; |&nbsp;</Nav.Link></Nav.Item>
+               <Nav.Item><Nav.Link href="/carepackage">Care Package </Nav.Link></Nav.Item>
                <Nav.Item><Nav.Link href="/help">Help</Nav.Link></Nav.Item> 
              </Nav>
             <Navbar.Text>
-                Signed in as: <a href="/"> <i class="fas fa-user">{localStorage.getItem("name")}</i></a>
+            &nbsp; &nbsp; |&nbsp; Signed in as: <a href="/"> <i class="fas fa-user">{localStorage.getItem("name")}</i></a>
             </Navbar.Text>
           
         </Navbar.Collapse>
