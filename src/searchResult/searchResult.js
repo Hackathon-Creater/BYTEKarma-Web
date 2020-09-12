@@ -42,12 +42,12 @@ class searchResult extends Component {
         <TableHeaderColumn dataField='name'>Name</TableHeaderColumn>
         <TableHeaderColumn dataField='region'>Region</TableHeaderColumn>
         <TableHeaderColumn dataField='pod'>POD</TableHeaderColumn>
-        <TableHeaderColumn dataField='cc_bill'>CC_Bill</TableHeaderColumn>
-        <TableHeaderColumn dataField='gambling'>gambling</TableHeaderColumn>
-        <TableHeaderColumn dataField='amazon'>amazon</TableHeaderColumn>
-        <TableHeaderColumn dataField='food'>food</TableHeaderColumn>
-        <TableHeaderColumn dataField='movie'>movie</TableHeaderColumn>
-        <TableHeaderColumn dataField='shopping'>shopping</TableHeaderColumn>
+        <TableHeaderColumn dataField='cc_bill'>Credit Card Bill</TableHeaderColumn>
+        <TableHeaderColumn dataField='gambling'>Gambling</TableHeaderColumn>
+        <TableHeaderColumn dataField='amazon'>Amazon</TableHeaderColumn>
+        <TableHeaderColumn dataField='food'>Food</TableHeaderColumn>
+        <TableHeaderColumn dataField='movie'>Movie</TableHeaderColumn>
+        <TableHeaderColumn dataField='shopping'>Shopping</TableHeaderColumn>
     </BootstrapTable>
     </div>
     </div>

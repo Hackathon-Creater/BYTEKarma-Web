@@ -23,7 +23,7 @@ export const Carepackage = () => (
                 <ProgressBar variant="success" now={99} />
             </Card.Text>
 
-            <Card.Link href="https://www.gamblingtherapy.org/en">See More Deatils</Card.Link>
+            <Card.Link href="https://www.gamblingtherapy.org/en">See More Details</Card.Link>
 
         </Card.Body>
     </Card>
@@ -38,7 +38,7 @@ export const Carepackage = () => (
                 <ProgressBar variant="success" now={90} />
             </Card.Text>
 
-            <Card.Link href="https://www.goodtherapy.org/blog/dear-gt/how-can-i-end-my-gambling-addiction-for-good">See More Deatils</Card.Link>
+            <Card.Link href="https://www.goodtherapy.org/blog/dear-gt/how-can-i-end-my-gambling-addiction-for-good">See More Details</Card.Link>
 
         </Card.Body>
     </Card>
@@ -53,7 +53,7 @@ export const Carepackage = () => (
                 <ProgressBar variant="success" now={80} />
             </Card.Text>
 
-            <Card.Link href="https://www.lifehack.org/articles/money/ditch-the-excuses-15-tips-quit-spending-your-money.html">See More Deatils</Card.Link>
+            <Card.Link href="https://www.lifehack.org/articles/money/ditch-the-excuses-15-tips-quit-spending-your-money.html">See More Details</Card.Link>
 
         </Card.Body>
     </Card>
@@ -75,7 +75,7 @@ export const Carepackage = () => (
   <ProgressBar variant="success" now={99} />
 </Card.Text>
 
-<Card.Link href="https://www.gamblingtherapy.org/en">See More Deatils</Card.Link>
+<Card.Link href="https://www.gamblingtherapy.org/en">See More Details</Card.Link>
 
 </Card.Body>
 </Card>
@@ -90,7 +90,7 @@ export const Carepackage = () => (
   <ProgressBar variant="success" now={90} />
 </Card.Text>
 
-<Card.Link href="https://www.goodtherapy.org/blog/dear-gt/how-can-i-end-my-gambling-addiction-for-good">See More Deatils</Card.Link>
+<Card.Link href="https://www.goodtherapy.org/blog/dear-gt/how-can-i-end-my-gambling-addiction-for-good">See More Details</Card.Link>
 
 </Card.Body>
 </Card>
@@ -105,7 +105,7 @@ export const Carepackage = () => (
   <ProgressBar variant="success" now={80} />
 </Card.Text>
 
-<Card.Link href="https://www.lifehack.org/articles/money/ditch-the-excuses-15-tips-quit-spending-your-money.html">See More Deatils</Card.Link>
+<Card.Link href="https://www.lifehack.org/articles/money/ditch-the-excuses-15-tips-quit-spending-your-money.html">See More Details</Card.Link>
 
 </Card.Body>
 </Card>
@@ -127,7 +127,7 @@ export const Carepackage = () => (
   <ProgressBar variant="success" now={99} />
 </Card.Text>
 
-<Card.Link href="https://www.gamblingtherapy.org/en">See More Deatils</Card.Link>
+<Card.Link href="https://www.gamblingtherapy.org/en">See More Details</Card.Link>
 
 </Card.Body>
 </Card>
@@ -142,7 +142,7 @@ export const Carepackage = () => (
   <ProgressBar variant="success" now={90} />
 </Card.Text>
 
-<Card.Link href="https://www.goodtherapy.org/blog/dear-gt/how-can-i-end-my-gambling-addiction-for-good">See More Deatils</Card.Link>
+<Card.Link href="https://www.goodtherapy.org/blog/dear-gt/how-can-i-end-my-gambling-addiction-for-good">See More Details</Card.Link>
 
 </Card.Body>
 </Card>
@@ -157,7 +157,7 @@ export const Carepackage = () => (
   <ProgressBar variant="success" now={80} />
 </Card.Text>
 
-<Card.Link href="https://www.lifehack.org/articles/money/ditch-the-excuses-15-tips-quit-spending-your-money.html">See More Deatils</Card.Link>
+<Card.Link href="https://www.lifehack.org/articles/money/ditch-the-excuses-15-tips-quit-spending-your-money.html">See More Details</Card.Link>
 
 </Card.Body>
 </Card>

@@ -1,121 +1,41 @@
-import React, { state } from 'react';
+import React, { state3 } from 'react';
 import styled from 'styled-components';
 import { Bar, HorizontalBar,Doughnut } from "react-chartjs-2";
 import { MDBContainer } from "mdbreact";
 import { Card, ProgressBar } from "react-bootstrap";
-// const GridWrapper = styled.div`
-//   display: grid;
-//   grid-gap: 10px;
-//   margin-top: 1em;
-//   margin-left: 6em;
-//   margin-right: 6em;
-//   grid-template-columns: repeat(12, 1fr);
-//   grid-auto-rows: minmax(25px, auto);
-// `;
+import axios from 'axios';
 
-
-// state = {
-//     dataBar: {
-//       labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-//       datasets: [
-//         {
-//           label: "% of Votes",
-//           data: [12, 19, 3, 5, 2, 3],
-//           backgroundColor: [
-//             "rgba(255, 134,159,0.4)",
-//             "rgba(98,  182, 239,0.4)",
-//             "rgba(255, 218, 128,0.4)",
-//             "rgba(113, 205, 205,0.4)",
-//             "rgba(170, 128, 252,0.4)",
-//             "rgba(255, 177, 101,0.4)"
-//           ],
-//           borderWidth: 2,
-//           borderColor: [
-//             "rgba(255, 134, 159, 1)",
-//             "rgba(98,  182, 239, 1)",
-//             "rgba(255, 218, 128, 1)",
-//             "rgba(113, 205, 205, 1)",
-//             "rgba(170, 128, 252, 1)",
-//             "rgba(255, 177, 101, 1)"
-//           ]
-//         }
-//       ]
-//     },
-//     barChartOptions: {
-//       responsive: true,
-//       maintainAspectRatio: false,
-//       scales: {
-//         xAxes: [
-//           {
-//             barPercentage: 1,
-//             gridLines: {
-//               display: true,
-//               color: "rgba(0, 0, 0, 0.1)"
-//             }
-//           }
-//         ],
-//         yAxes: [
-//           {
-//             gridLines: {
-//               display: true,
-//               color: "rgba(0, 0, 0, 0.1)"
-//             },
-//             ticks: {
-//               beginAtZero: true
-//             }
-//           }
-//         ]
-//       }
-//     }
-//   }
-
-// export const  Home = (props) => (
-//   <div class="container-fluid sp" style={{marginTop:'1%',marginBottom:'2%',marginLeft:'2%',width:'96%'}}>
-//       <div class="row">
-
-//         <h3 style={{marginTop:'3%',marginLeft:'5%',color:"grey"}}>Report</h3> 
-//       </div>
-//       <div class="row">
-//       <h5 style={{marginTop:'3%',marginLeft:'5%'}}>Summary</h5>
-//       </div>
-//       <div class="row">
-//       <MDBContainer>
-//         <h3 className="mt-5">Bar chart</h3>
-//         <Bar data={this.state.dataBar} options={this.state.barChartOptions} />
-//       </MDBContainer>
-//       </div>
-//   </div>
-// )
 
 
 class Home extends React.Component {
-    state = {
-        dataBar: {
-            labels: ["Food", "Gambling", "Shoping", "Medical", "Travel", "Others"],
-            datasets: [
-                {
-                    label: "% of Spending",
-                    data: [12, 19, 3, 5, 2, 3],
-                    backgroundColor: [
-                        "rgba(255, 134,159,0.4)",
-                        "rgba(98,  182, 239,0.4)",
-                        "rgba(255, 218, 128,0.4)",
-                        "rgba(113, 205, 205,0.4)",
-                        "rgba(170, 128, 252,0.4)",
-                        "rgba(255, 177, 101,0.4)"
-                    ],
-                    borderWidth: 2,
-                    borderColor: [
-                        "rgba(255, 134, 159, 1)",
-                        "rgba(98,  182, 239, 1)",
-                        "rgba(255, 218, 128, 1)",
-                        "rgba(113, 205, 205, 1)",
-                        "rgba(170, 128, 252, 1)",
-                        "rgba(255, 177, 101, 1)"
-                    ]
-                }
-            ]
-        },
+    constructor(props) {
+        super(props)
+        /* 1. Initialize Ref */
+        this.state = {
+      
+            total_cust:0 ,
+        
+            contacted_cust: 0,
+        
+            risky_cust: 25,
+           
+            gambling_avg:0,
+            amazon_avg: 0,
+            shopping_avg: 0,
+            food_avg: 0,
+            movie_avg: 0,
+            ccbill_avg: 0
+          
+    
+        };
+    
+        // this.cif = React.createRef(); 
+      }
+    
+        // this.cif = React.createRef(); 
+      
+    state3 = {
+        dataBar: [],
         barChartOptions: {
             responsive: true,
             maintainAspectRatio: false,
@@ -146,11 +66,11 @@ class Home extends React.Component {
 
     state1 = {
         dataDoughnut: {
-            labels: ["Red", "Green", "Yellow", "Grey", "Dark Grey"],
+            labels: ["Risky Customers", "Non-Risky Customers"],
             datasets: [
                 {
-                    data: [300, 50, 100, 40, 120],
-                    backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
+                    data: [ localStorage.getItem("risky_cust"), 100-localStorage.getItem("risky_cust")],
+                    backgroundColor: ["#F7464A", "#008000"],
                     hoverBackgroundColor: [
                         "#FF5A5E",
                         "#5AD3D1",
@@ -163,7 +83,44 @@ class Home extends React.Component {
         }
     }
 
-
+    componentWillMount() {
+        var statusRes="";
+        let currentComponent = this;
+        axios.get("http://18.188.184.252:5000/home").then(function (response) {
+          console.log(response.status); 
+          statusRes=response.status;
+          const myObjStr = JSON.stringify(response);
+    
+          console.log(myObjStr);
+        
+          
+          const data= JSON.parse(myObjStr).data;
+        //  this.setState({
+        //     total_cust:0 ,
+        
+        //     contacted_cust: data.contacted_cust,
+        
+        //     risky_cust: data.risky_cust,
+           
+        //     gambling_avg:data.gambling_avg,
+        //     amazon_avg: data.amazon_avg,
+        //     shopping_avg: data.shopping_avg,
+        //     food_avg: data.food_avg,
+        //     movie_avg: data.movie_avg,
+        //     ccbill_avg: data.ccbill_avg  
+        //  });
+    
+         localStorage.setItem("total_cust",data[0].total_cust);
+         localStorage.setItem("contacted_cust",data[0].contacted_cust*100);
+         localStorage.setItem("risky_cust",data[0].risky_cust);
+         localStorage.setItem("gambling_avg",data[0].gambling_avg*100);
+         localStorage.setItem("amazon_avg",data[0].amazon_avg*100);
+         localStorage.setItem("shopping_avg",data[0].shopping_avg*100);
+         localStorage.setItem("food_avg",data[0].food_avg*100);
+         localStorage.setItem("movie_avg",data[0].movie_avg*100);
+         localStorage.setItem("ccbill_avg",data[0].ccbill_avg*100);
+        });  
+      }
     render() {
         return (
             <div class="container-fluid sp" style={{ marginTop: '-0%', marginBottom: '2%', marginLeft: '2%', width: '96%' }}>
@@ -179,9 +136,9 @@ class Home extends React.Component {
                                     <Card.Title>Total Customers</Card.Title>
                                     <Card.Subtitle className="mb-2 text-muted">Onborded </Card.Subtitle>
                                     <Card.Text style={{ fontSize: "-webkit-xxx-large", textAlign: "center", }}>
-                                        25
+                                        {localStorage.getItem("total_cust")}
                                     </Card.Text>
-                                    <Card.Link href="/search">See More Deatils</Card.Link>
+                                    <Card.Link href="/search">See More Details</Card.Link>
 
                                 </Card.Body>
                             </Card>
@@ -192,9 +149,10 @@ class Home extends React.Component {
                                     <Card.Title>Customers at Default</Card.Title>
                                     <Card.Subtitle className="mb-2 text-muted">In Ratio </Card.Subtitle>
                                     <Card.Text style={{ fontSize: "-webkit-xxx-large", textAlign: "center", }}>
-                                        10%
+                                       
+                                        {localStorage.getItem("risky_cust")}%
                                     </Card.Text>
-                                    <Card.Link href="/search">See More Deatils</Card.Link>
+                                    <Card.Link href="/search">See More Details</Card.Link>
 
                                 </Card.Body>
                             </Card>
@@ -205,11 +163,11 @@ class Home extends React.Component {
                                     <Card.Title>Customers Advised</Card.Title>
                                     <Card.Subtitle className="mb-2 text-muted">In Ratio </Card.Subtitle>
                                     <Card.Text style={{ fontSize: "-webkit-xxx-large", textAlign: "center", }}>
-                                        35%
+                                    {localStorage.getItem("contacted_cust")}%
                                         <ProgressBar variant="success" now={35} />
                                     </Card.Text>
 
-                                    <Card.Link href="/search">See More Deatils</Card.Link>
+                                    <Card.Link href="/search">See More Details</Card.Link>
 
                                 </Card.Body>
                             </Card>
@@ -221,7 +179,35 @@ class Home extends React.Component {
                         <div style={{ marginLeft: '5%', width: '45%', maxHeight: '100%', marginTop: '3%' }}>
                             <MDBContainer>
                                 <h5 className="mt-5">Average Spending Patern</h5>
-                                <Bar data={this.state.dataBar} options={this.state.barChartOptions} />
+                                <Bar data={
+                                    {
+                                        labels: ["Food", "Gambling", "Shoping", "Credit Card Bill", "Movie", "Amazon"],
+                                        datasets: [
+                                            {
+                                                label: "% of Spending",
+                                                data: [localStorage.getItem("food_avg"), localStorage.getItem("gambling_avg"), localStorage.getItem("shopping_avg"), localStorage.getItem("ccbill_avg")
+                                                , localStorage.getItem("movie_avg"),localStorage.getItem("movie_avg")],
+                                                backgroundColor: [
+                                                    "rgba(255, 134,159,0.4)",
+                                                    "rgba(98,  182, 239,0.4)",
+                                                    "rgba(255, 218, 128,0.4)",
+                                                    "rgba(113, 205, 205,0.4)",
+                                                    "rgba(170, 128, 252,0.4)",
+                                                    "rgba(255, 177, 101,0.4)"
+                                                ],
+                                                borderWidth: 2,
+                                                borderColor: [
+                                                    "rgba(255, 134, 159, 1)",
+                                                    "rgba(98,  182, 239, 1)",
+                                                    "rgba(255, 218, 128, 1)",
+                                                    "rgba(113, 205, 205, 1)",
+                                                    "rgba(170, 128, 252, 1)",
+                                                    "rgba(255, 177, 101, 1)"
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                } options={this.state3.barChartOptions} />
                             </MDBContainer>
                         </div>
                         <div style={{ marginLeft: '5%', width: '30%', maxHeight: '80%', marginTop: '3%' }}>

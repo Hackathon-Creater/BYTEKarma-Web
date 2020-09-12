@@ -54,7 +54,7 @@ class Search extends Component {
       headers: { 'Content-Type': 'application/json' },
       data: {
         "cif": this.state.cif,
-        "country": this.state.country,
+        "country": [this.state.country],
         "state": this.state.state,
         "city": "",
         "region": "",
@@ -100,7 +100,7 @@ class Search extends Component {
 
                           </Form.Group>
                           <Form.Group as={Col} controlId="formTranType">
-                            <Form.Label>Tansaction Type </Form.Label>
+                            <Form.Label>Transaction Type </Form.Label>
                             <Form.Control as="select" defaultValue="Choose...">
                               <option>Choose...</option>
                               <option>Debit</option>

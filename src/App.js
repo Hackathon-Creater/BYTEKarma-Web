@@ -16,6 +16,7 @@ import Sidebar from './components/SideBar';
 import './App.css';
 import Footer from './components/Footer';
 import searchResult from './searchResult/searchResult';
+import axios from 'axios';
 
 var login11=false;
 class App extends React.Component {
@@ -90,6 +91,44 @@ class App extends React.Component {
       password: e.target.value
     })
   }
+  componentWillMount() {
+    var statusRes="";
+    let currentComponent = this;
+    axios.get("http://18.188.184.252:5000/home").then(function (response) {
+      console.log(response.status); 
+      statusRes=response.status;
+      const myObjStr = JSON.stringify(response);
+
+      console.log(myObjStr);
+    
+      
+      const data= JSON.parse(myObjStr).data;
+    //  this.setState({
+    //     total_cust:0 ,
+    
+    //     contacted_cust: data.contacted_cust,
+    
+    //     risky_cust: data.risky_cust,
+       
+    //     gambling_avg:data.gambling_avg,
+    //     amazon_avg: data.amazon_avg,
+    //     shopping_avg: data.shopping_avg,
+    //     food_avg: data.food_avg,
+    //     movie_avg: data.movie_avg,
+    //     ccbill_avg: data.ccbill_avg  
+    //  });
+
+     localStorage.setItem("total_cust",data.total_cust);
+     localStorage.setItem("contacted_cust",data.contacted_cust);
+     localStorage.setItem("risky_cust",data.risky_cust);
+     localStorage.setItem("gambling_avg",data.gambling_avg);
+     localStorage.setItem("amazon_avg",data.amazon_avg);
+     localStorage.setItem("shopping_avg",data.shopping_avg);
+     localStorage.setItem("food_avg",data.food_avg);
+     localStorage.setItem("movie_avg",data.movie_avg);
+     localStorage.setItem("ccbill_avg",data.ccbill_avg);
+    });  
+  }
   render() {
 
 
@@ -147,7 +186,7 @@ class App extends React.Component {
               <Route exact path="/help" component={Help} />
               {/* <Route component={NoMatch} /> */}
             </Switch>
-            <Footer></Footer>
+            {/* <Footer></Footer> */}
           </Router>
           
         </React.Fragment>
