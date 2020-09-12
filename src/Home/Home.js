@@ -1,6 +1,6 @@
-import React, { state3 } from 'react';
-import styled from 'styled-components';
-import { Bar, HorizontalBar,Doughnut } from "react-chartjs-2";
+import React from 'react';
+
+import { Bar,Doughnut } from "react-chartjs-2";
 import { MDBContainer } from "mdbreact";
 import { Card, ProgressBar } from "react-bootstrap";
 import axios from 'axios';
@@ -34,35 +34,35 @@ class Home extends React.Component {
     
         // this.cif = React.createRef(); 
       
-    state3 = {
-        dataBar: [],
-        barChartOptions: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                xAxes: [
-                    {
-                        barPercentage: 1,
-                        gridLines: {
-                            display: true,
-                            color: "rgba(0, 0, 0, 0.1)"
-                        }
-                    }
-                ],
-                yAxes: [
-                    {
-                        gridLines: {
-                            display: true,
-                            color: "rgba(0, 0, 0, 0.1)"
-                        },
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }
-                ]
-            }
-        }
-    }
+    // state3 = {
+    //     dataBar: [],
+    //     barChartOptions: {
+    //         responsive: true,
+    //         maintainAspectRatio: false,
+    //         scales: {
+    //             xAxes: [
+    //                 {
+    //                     barPercentage: 1,
+    //                     gridLines: {
+    //                         display: true,
+    //                         color: "rgba(0, 0, 0, 0.1)"
+    //                     }
+    //                 }
+    //             ],
+    //             yAxes: [
+    //                 {
+    //                     gridLines: {
+    //                         display: true,
+    //                         color: "rgba(0, 0, 0, 0.1)"
+    //                     },
+    //                     ticks: {
+    //                         beginAtZero: true
+    //                     }
+    //                 }
+    //             ]
+    //         }
+    //     }
+    // }
 
     state1 = {
         dataDoughnut: {
@@ -85,12 +85,8 @@ class Home extends React.Component {
 
     componentWillMount() {
         var statusRes="";
-        
-        let currentComponent = this;
-        const httpsAgent = new https.Agent({
-            rejectUnauthorized: false
-          })
-        axios.get("http://3.18.106.65:5000/home", { headers: {'Content-Type': 'application/json'}},{ httpsAgent }).then(function (response) {
+        // let currentComponent = this;
+        axios.get("http://3.18.106.65:5000/home", { headers: {'Content-Type': 'application/json'}}).then(function (response) {
           console.log(response.status); 
           statusRes=response.status;
           const myObjStr = JSON.stringify(response);
@@ -125,7 +121,7 @@ class Home extends React.Component {
                             <Card style={{ width: '17rem', boxShadow: "0px 3px 10px 11px rgba(0,0,0,0.099)", border: "0px solid #fff" }}>
                                 <Card.Body>
                                     <Card.Title>Total Customers</Card.Title>
-                                    <Card.Subtitle className="mb-2 text-muted">Onborded </Card.Subtitle>
+                                    <Card.Subtitle className="mb-2 text-muted">Onboarded </Card.Subtitle>
                                     <Card.Text style={{ fontSize: "-webkit-xxx-large", textAlign: "center", }}>
                                         {localStorage.getItem("total_cust")}
                                     </Card.Text>
