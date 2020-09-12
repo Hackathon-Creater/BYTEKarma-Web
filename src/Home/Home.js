@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { state3 } from 'react';
 
 import { Bar,Doughnut } from "react-chartjs-2";
 import { MDBContainer } from "mdbreact";
-import { Card, ProgressBar } from "react-bootstrap";
+import { Card,ProgressBar, HorizontalBar} from "react-bootstrap";
 import axios from 'axios';
 import https from 'https';
 import fs from 'fs';
@@ -34,35 +34,35 @@ class Home extends React.Component {
     
         // this.cif = React.createRef(); 
       
-    // state3 = {
-    //     dataBar: [],
-    //     barChartOptions: {
-    //         responsive: true,
-    //         maintainAspectRatio: false,
-    //         scales: {
-    //             xAxes: [
-    //                 {
-    //                     barPercentage: 1,
-    //                     gridLines: {
-    //                         display: true,
-    //                         color: "rgba(0, 0, 0, 0.1)"
-    //                     }
-    //                 }
-    //             ],
-    //             yAxes: [
-    //                 {
-    //                     gridLines: {
-    //                         display: true,
-    //                         color: "rgba(0, 0, 0, 0.1)"
-    //                     },
-    //                     ticks: {
-    //                         beginAtZero: true
-    //                     }
-    //                 }
-    //             ]
-    //         }
-    //     }
-    // }
+    state3 = {
+        dataBar: [],
+        barChartOptions: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                xAxes: [
+                    {
+                        barPercentage: 1,
+                        gridLines: {
+                            display: true,
+                            color: "rgba(0, 0, 0, 0.1)"
+                        }
+                    }
+                ],
+                yAxes: [
+                    {
+                        gridLines: {
+                            display: true,
+                            color: "rgba(0, 0, 0, 0.1)"
+                        },
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }
+                ]
+            }
+        }
+    }
 
     state1 = {
         dataDoughnut: {
