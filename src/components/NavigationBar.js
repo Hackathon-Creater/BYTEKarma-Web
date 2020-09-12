@@ -49,13 +49,13 @@ export const NavigationBar = () => (
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
         <Nav className="ml-auto" style={{color:"black"}}>
-              <Nav.Item><Nav.Link href="/home">Home</Nav.Link></Nav.Item> 
-              <Nav.Item><Nav.Link href="/search">Search</Nav.Link></Nav.Item> 
-              <Nav.Item><Nav.Link href="/dataupload">DataUpload</Nav.Link></Nav.Item> 
-              <Nav.Item><Nav.Link href="/policy">Privacy Policy</Nav.Link></Nav.Item> 
+              <Nav.Item><Nav.Link href="/home"><strong>Home</strong></Nav.Link></Nav.Item> 
+              <Nav.Item><Nav.Link href="/search"><strong>Search</strong></Nav.Link></Nav.Item> 
+              <Nav.Item><Nav.Link href="/dataupload"><strong>Data Upload</strong></Nav.Link></Nav.Item> 
+              <Nav.Item><Nav.Link href="/policy"><strong>Privacy Policy</strong></Nav.Link></Nav.Item> 
             
-               <Nav.Item><Nav.Link href="/carepackage">Care Package </Nav.Link></Nav.Item>
-               <Nav.Item><Nav.Link href="/help">Help</Nav.Link></Nav.Item> 
+               <Nav.Item><Nav.Link href="/carepackage"><strong>Care Package</strong> </Nav.Link></Nav.Item>
+               <Nav.Item><Nav.Link href="/help"><strong>Help</strong></Nav.Link></Nav.Item> 
              </Nav>
             <Navbar.Text>
             &nbsp; &nbsp; |&nbsp; Signed in as:  &nbsp; <a href="/"> <i class="fas fa-user">&nbsp; {localStorage.getItem("name")}</i></a>

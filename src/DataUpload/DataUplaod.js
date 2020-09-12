@@ -152,12 +152,12 @@ class DataUpload extends Component {
                         <div className="row">
                         <div class="col-sm-6">
                         <button className="btn btn-danger" onClick={this.onFileUpload}> 
-                         Data Upload! 
+                         Data Upload
                         </button> 
                         </div>
                         <div class="col-sm-6">
                         <button className="btn btn-danger" onClick={this.onFileuserdataUpload}> 
-                          User data Upload! 
+                          User data Upload
                         </button> 
                         </div>  
                         </div>
