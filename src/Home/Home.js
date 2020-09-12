@@ -86,7 +86,7 @@ class Home extends React.Component {
     componentWillMount() {
         var statusRes="";
         let currentComponent = this;
-        axios.get("https://18.188.184.252:5000/home").then(function (response) {
+        axios.get("http://18.188.184.252:5000/home").then(function (response) {
           console.log(response.status); 
           statusRes=response.status;
           const myObjStr = JSON.stringify(response);
