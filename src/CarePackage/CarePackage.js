@@ -35,7 +35,7 @@ export const Carepackage = () => (
             <Card.Subtitle className="mb-2 text-muted">In Ratio </Card.Subtitle>
             <Card.Text style={{ fontSize: "-webkit-xxx-large", textAlign: "center", }}>
                 90%
-                <ProgressBar variant="success" now={90} />
+                <ProgressBar variant="primary" now={90} />
             </Card.Text>
 
             <Card.Link href="https://www.goodtherapy.org/blog/dear-gt/how-can-i-end-my-gambling-addiction-for-good">See More Details</Card.Link>
@@ -50,7 +50,7 @@ export const Carepackage = () => (
             <Card.Subtitle className="mb-2 text-muted">In Ratio </Card.Subtitle>
             <Card.Text style={{ fontSize: "-webkit-xxx-large", textAlign: "center", }}>
                 80%
-                <ProgressBar variant="success" now={80} />
+                <ProgressBar variant="warning" now={80} />
             </Card.Text>
 
             <Card.Link href="https://www.lifehack.org/articles/money/ditch-the-excuses-15-tips-quit-spending-your-money.html">See More Details</Card.Link>
@@ -87,7 +87,7 @@ export const Carepackage = () => (
 <Card.Subtitle className="mb-2 text-muted">In Ratio </Card.Subtitle>
 <Card.Text style={{ fontSize: "-webkit-xxx-large", textAlign: "center", }}>
   90%
-  <ProgressBar variant="success" now={90} />
+  <ProgressBar variant="primary" now={90} />
 </Card.Text>
 
 <Card.Link href="https://www.goodtherapy.org/blog/dear-gt/how-can-i-end-my-gambling-addiction-for-good">See More Details</Card.Link>
@@ -102,7 +102,7 @@ export const Carepackage = () => (
 <Card.Subtitle className="mb-2 text-muted">In Ratio </Card.Subtitle>
 <Card.Text style={{ fontSize: "-webkit-xxx-large", textAlign: "center", }}>
   80%
-  <ProgressBar variant="success" now={80} />
+  <ProgressBar variant="warning" now={80} />
 </Card.Text>
 
 <Card.Link href="https://www.lifehack.org/articles/money/ditch-the-excuses-15-tips-quit-spending-your-money.html">See More Details</Card.Link>
@@ -139,7 +139,7 @@ export const Carepackage = () => (
 <Card.Subtitle className="mb-2 text-muted">In Ratio </Card.Subtitle>
 <Card.Text style={{ fontSize: "-webkit-xxx-large", textAlign: "center", }}>
   90%
-  <ProgressBar variant="success" now={90} />
+  <ProgressBar variant="primary" now={90} />
 </Card.Text>
 
 <Card.Link href="https://www.goodtherapy.org/blog/dear-gt/how-can-i-end-my-gambling-addiction-for-good">See More Details</Card.Link>
@@ -154,7 +154,7 @@ export const Carepackage = () => (
 <Card.Subtitle className="mb-2 text-muted">In Ratio </Card.Subtitle>
 <Card.Text style={{ fontSize: "-webkit-xxx-large", textAlign: "center", }}>
   80%
-  <ProgressBar variant="success" now={80} />
+  <ProgressBar variant="warning" now={80} />
 </Card.Text>
 
 <Card.Link href="https://www.lifehack.org/articles/money/ditch-the-excuses-15-tips-quit-spending-your-money.html">See More Details</Card.Link>
