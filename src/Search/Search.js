@@ -50,7 +50,7 @@ class Search extends Component {
  
     axios({
       method: 'post',
-      url: "http://18.188.184.252:5000/search",
+      url: "http://3.18.106.65:5000/search",
       headers: { 'Content-Type': 'application/json' },
       data: {
         "cif": this.state.cif,
@@ -72,7 +72,7 @@ class Search extends Component {
 
     });
 
-    // axios.post("http://18.188.184.252:5000/search/"+this.state); 
+    // axios.post("http://3.18.106.65:5000/search/"+this.state); 
   };
 
   render() {

@@ -50,7 +50,7 @@ class DataUpload extends Component {
         var statusRes="";
         // Request made to the backend api 
         // Send formData object 
-        axios.post("http://18.188.184.252:5000/upload", formData).then(function (response) {
+        axios.post("http://3.18.106.65:5000/upload", formData).then(function (response) {
             console.log(response.status); 
             statusRes=response.status;
     
@@ -88,7 +88,7 @@ class DataUpload extends Component {
             var statusRes="";
             // Request made to the backend api 
             // Send formData object 
-            axios.post("http://18.188.184.252:5000/infoupload", formData).then(function (response) {
+            axios.post("http://3.18.106.65:5000/infoupload", formData).then(function (response) {
                 console.log(response.status); 
                 statusRes=response.status;
         
