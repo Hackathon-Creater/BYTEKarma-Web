@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+
 
 export const  PrivacyPolicy = (props) => (
   <div className="container">

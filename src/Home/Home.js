@@ -189,7 +189,7 @@ class Home extends React.Component {
                         <div class="col-md-4 col-sm-4 col-xs-12" style={{ marginTop: '1%', }}>
                             <Card style={{ width: '17rem', boxShadow: "0px 3px 10px 11px rgba(0,0,0,0.099)", border: "0px solid #fff" }}>
                                 <Card.Body>
-                                    <Card.Title>Defaut Customer</Card.Title>
+                                    <Card.Title>Customers at Default</Card.Title>
                                     <Card.Subtitle className="mb-2 text-muted">In Ratio </Card.Subtitle>
                                     <Card.Text style={{ fontSize: "-webkit-xxx-large", textAlign: "center", }}>
                                         10%
@@ -202,7 +202,7 @@ class Home extends React.Component {
                         <div class="col-md-4 col-sm-4 col-xs-12" style={{ marginTop: '1%', }}>
                             <Card style={{ width: '17rem', height: '13rem', boxShadow: "0px 3px 10px 11px rgba(0,0,0,0.099)", border: "0px solid #fff" }}>
                                 <Card.Body>
-                                    <Card.Title>Contacted Customer</Card.Title>
+                                    <Card.Title>Customers Advised</Card.Title>
                                     <Card.Subtitle className="mb-2 text-muted">In Ratio </Card.Subtitle>
                                     <Card.Text style={{ fontSize: "-webkit-xxx-large", textAlign: "center", }}>
                                         35%

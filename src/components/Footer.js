@@ -1,7 +1,7 @@
 
 
 import React, { Component } from 'react';
-import { Card, ListGroup } from 'react-bootstrap';
+
 
 class Footer extends Component {
     render() {
