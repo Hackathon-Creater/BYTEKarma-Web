@@ -163,8 +163,8 @@ class Home extends React.Component {
                                     <Card.Title>Customers Advised</Card.Title>
                                     <Card.Subtitle className="mb-2 text-muted">In Ratio </Card.Subtitle>
                                     <Card.Text style={{ fontSize: "-webkit-xxx-large", textAlign: "center", }}>
-                                    {localStorage.getItem("contacted_cust")}%
-                                        <ProgressBar variant="success" now={35} />
+                                     {Math.round(localStorage.getItem("contacted_cust"))}%
+                                        <ProgressBar variant="success" now={Math.round(localStorage.getItem("contacted_cust"))} />
                                     </Card.Text>
 
                                     <Card.Link href="/search">See More Details</Card.Link>

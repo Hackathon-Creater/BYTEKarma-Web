@@ -19,6 +19,7 @@ class searchResult extends Component {
 
     componentWillMount() {
         let objarry=[];
+        if(JSON.parse(localStorage.getItem("searchResult")) !=="no results found"){
         Object.entries(this.state.myObjStr).map(([index, value]) => {
            
             var obj = JSON.parse(value);
@@ -28,6 +29,11 @@ class searchResult extends Component {
         this.setState({
             obj: objarry
         });
+    }else{
+        this.setState({
+            obj: []
+        });
+    }
     }
 
 

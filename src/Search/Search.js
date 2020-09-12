@@ -11,7 +11,7 @@ class Search extends Component {
     /* 1. Initialize Ref */
     this.state = {
       cif: "",
-      country: "",
+      country:[],
       state: "",
       city: "",
       region: "",
@@ -34,7 +34,7 @@ class Search extends Component {
   handleCountryChange(e) {
     console.log(e);
     this.setState({
-      country: e.target.value,
+      country: [e.target.value],
     })
   }
 
@@ -54,7 +54,7 @@ class Search extends Component {
       headers: { 'Content-Type': 'application/json' },
       data: {
         "cif": this.state.cif,
-        "country": [this.state.country],
+        "country": this.state.country.length > 0?this.state.country:"",
         "state": this.state.state,
         "city": "",
         "region": "",
