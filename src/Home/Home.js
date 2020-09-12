@@ -86,7 +86,7 @@ class Home extends React.Component {
     componentWillMount() {
         var statusRes="";
         let currentComponent = this;
-        axios.get("http://18.188.184.252:5000/home").then(function (response) {
+        axios.get("https://18.188.184.252:5000/home").then(function (response) {
           console.log(response.status); 
           statusRes=response.status;
           const myObjStr = JSON.stringify(response);
@@ -95,20 +95,7 @@ class Home extends React.Component {
         
           
           const data= JSON.parse(myObjStr).data;
-        //  this.setState({
-        //     total_cust:0 ,
         
-        //     contacted_cust: data.contacted_cust,
-        
-        //     risky_cust: data.risky_cust,
-           
-        //     gambling_avg:data.gambling_avg,
-        //     amazon_avg: data.amazon_avg,
-        //     shopping_avg: data.shopping_avg,
-        //     food_avg: data.food_avg,
-        //     movie_avg: data.movie_avg,
-        //     ccbill_avg: data.ccbill_avg  
-        //  });
     
          localStorage.setItem("total_cust",data[0].total_cust);
          localStorage.setItem("contacted_cust",data[0].contacted_cust*100);
