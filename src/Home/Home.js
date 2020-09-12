@@ -4,8 +4,8 @@ import { Bar, HorizontalBar,Doughnut } from "react-chartjs-2";
 import { MDBContainer } from "mdbreact";
 import { Card, ProgressBar } from "react-bootstrap";
 import axios from 'axios';
-
-
+import https from 'https';
+import fs from 'fs';
 
 class Home extends React.Component {
     constructor(props) {
@@ -85,8 +85,12 @@ class Home extends React.Component {
 
     componentWillMount() {
         var statusRes="";
+        
         let currentComponent = this;
-        axios.get("http://3.18.106.65:5000/home", { headers: {'Content-Type': 'application/json'}}).then(function (response) {
+        const httpsAgent = new https.Agent({
+            rejectUnauthorized: false
+          })
+        axios.get("http://3.18.106.65:5000/home", { headers: {'Content-Type': 'application/json'}},{ httpsAgent }).then(function (response) {
           console.log(response.status); 
           statusRes=response.status;
           const myObjStr = JSON.stringify(response);
