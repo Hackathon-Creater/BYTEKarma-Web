@@ -98,14 +98,14 @@ class Home extends React.Component {
         
     
          localStorage.setItem("total_cust",data[0].total_cust);
-         localStorage.setItem("contacted_cust",Math.round(data[0].contacted_cust));
+         localStorage.setItem("contacted_cust",Math.round(data[0].contacted_cust*100));
          localStorage.setItem("risky_cust",data[0].risky_cust);
-         localStorage.setItem("gambling_avg",Math.round(data[0].gambling_avg));
-         localStorage.setItem("amazon_avg",Math.round(data[0].amazon_avg));
-         localStorage.setItem("shopping_avg",Math.round(data[0].shopping_avg));
-         localStorage.setItem("food_avg",Math.round(data[0].food_avg));
-         localStorage.setItem("movie_avg",Math.round(data[0].movie_avg));
-         localStorage.setItem("ccbill_avg",Math.round(data[0].ccbill_avg));
+         localStorage.setItem("gambling_avg",Math.round(data[0].gambling_avg,2));
+         localStorage.setItem("amazon_avg",Math.round(data[0].amazon_avg,2));
+         localStorage.setItem("shopping_avg",Math.round(data[0].shopping_avg,2));
+         localStorage.setItem("food_avg",Math.round(data[0].food_avg,2));
+         localStorage.setItem("movie_avg",Math.round(data[0].movie_avg,2));
+         localStorage.setItem("ccbill_avg",Math.round(data[0].ccbill_avg,2));
         });  
       }
     render() {
