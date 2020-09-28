@@ -47,30 +47,30 @@ class Search extends Component {
   }
 
   SearchApi = () => {
- 
-    axios({
-      method: 'post',
-      url: "http://3.18.106.65:5000/search",
-      headers: { 'Content-Type': 'application/json' },
-      data: {
-        "cif": this.state.cif,
-        "country": this.state.country.length > 0?this.state.country:"",
-        "state": this.state.state,
-        "city": "",
-        "region": "",
-        "name": "",
-        "gender": ""
-      }
-    }).then(function (response) {
-      const searchData = JSON.stringify(response);
+    window.location.pathname="/searchResult";
+    // axios({
+    //   method: 'post',
+    //   url: "http://3.18.106.65:5000/search",
+    //   headers: { 'Content-Type': 'application/json' },
+    //   data: {
+    //     "cif": this.state.cif,
+    //     "country": this.state.country.length > 0?this.state.country:"",
+    //     "state": this.state.state,
+    //     "city": "",
+    //     "region": "",
+    //     "name": "",
+    //     "gender": ""
+    //   }
+    // }).then(function (response) {
+    //   const searchData = JSON.stringify(response);
     
-      const data = JSON.parse(searchData).data;
-      console.log(data.SearchResponse);
-      // route.push("/searchResul");
-      localStorage.setItem('searchResult', JSON.stringify(data.SearchResponse));
-      window.location.pathname="/searchResult";
+    //   const data = JSON.parse(searchData).data;
+    //   console.log(data.SearchResponse);
+    //   // route.push("/searchResul");
+    //   localStorage.setItem('searchResult', JSON.stringify(data.SearchResponse));
+    //   window.location.pathname="/searchResult";
 
-    });
+    // });
 
     // axios.post("http://3.18.106.65:5000/search/"+this.state); 
   };
