@@ -153,7 +153,7 @@ class Search extends Component {
 
                         </Form.Row>
 
-                        <Button variant="success" onClick={this.SearchApi}>
+                        <Button variant="btn btn-danger" onClick={this.SearchApi}>
                           Search
           </Button>
                       </Form>

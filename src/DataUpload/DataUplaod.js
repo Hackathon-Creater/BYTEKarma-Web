@@ -155,7 +155,7 @@ class DataUpload extends Component {
 
 
               <div class="form-group files color">
-                <label>Upload Your File </label>
+                <label> <strong>Upload Your File:</strong> </label>
                 <input type="file" onChange={this.onFileChange} class="form-control" multiple="" />
               </div>
 
