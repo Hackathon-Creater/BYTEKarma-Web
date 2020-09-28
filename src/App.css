@@ -66,7 +66,8 @@ box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75);
 bottom: 0;
 width: 100%;
 
-background-color: #ef9595;
+background-color: #dc0c63;
+color: white;
 
 }
 .privacyimage{
@@ -139,4 +140,44 @@ margin-left: 6%; */
   }
 .regilayout{
   margin-top: 2%;
+}
+.homepagebackgroundcolor{
+  background-color: skyblue;
+  border: "0px solid #fff";
+  box-shadow: "0px 3px 10px 11px rgba(0,0,0,0.099)";
+}
+
+.advisedcusticon{
+  background-image: url("./images/customers.png");
+
+background-repeat: no-repeat;
+background-size: 104px;
+/* margin-top: 9%;
+margin-left: 6%; */
+}
+
+.CustomersatDefaulticon{
+  background-image: url("./images/CustomersatDefault.png");
+
+background-repeat: no-repeat;
+background-size: 104px;
+/* margin-top: 9%;
+margin-left: 6%; */
+}
+.totalcustomericon{
+  background-image: url("./images/totalcustomericon.ico");
+
+background-repeat: no-repeat;
+background-size: 104px;
+/* margin-top: 9%;
+margin-left: 6%; */
+}
+
+.negitiveCusticon{
+  background-image: url("./images/negitiveCusticon.png");
+
+background-repeat: no-repeat;
+background-size: 80px;
+/* margin-top: 9%;
+margin-left: 6%; */
 }

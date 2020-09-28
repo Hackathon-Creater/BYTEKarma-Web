@@ -3,7 +3,7 @@ import { Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootst
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
 import { BrowserRouter as Router, Route, Switch,Redirect } from "react-router-dom";
-import { NavigationBar } from './components/NavigationBar';
+import NavigationBar  from './components/NavigationBar';
 import { Login } from './login/Login';
 import  Home  from './Home/Home';
 import { Carepackage } from './CarePackage/CarePackage';
@@ -20,7 +20,7 @@ import axios from 'axios';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Registration from './Registration/Registration';
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody } from 'mdbreact';
-
+import profileDetails from "./Profile/profileDetails";
 var login11=false;
 class App extends React.Component {
   constructor(props) {
@@ -113,7 +113,7 @@ class App extends React.Component {
  
   render() {
  
-
+   
     if ( window.location.pathname == "/") {
       return (
         <div class="container-fluid bgstyle" >
@@ -240,7 +240,7 @@ class App extends React.Component {
           <Router>
           <Sidebar />
             <NavigationBar />
-            
+            <profileDetails></profileDetails>  
             <Switch>
               <Route exact path="/home" component={Home} />
               <Route exact path="/search" component={Search} />
@@ -253,9 +253,9 @@ class App extends React.Component {
               <Route exact path="/registration" component={Registration} />
               {/* <Route component={NoMatch} /> */}
             </Switch>
-            {/* <Footer></Footer> */}
+            <Footer></Footer>
           </Router>
-          
+         
         </React.Fragment>
       );
       

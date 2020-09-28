@@ -84,9 +84,9 @@ class Search extends Component {
             <div class="col-md-12" style={{ marginTop: '2%' }}>
               <Accordion defaultActiveKey="0">
                 <Card>
-                  <Card.Header>
-                    <Accordion.Toggle as={Button} variant="link" eventKey="0">
-                      Search By Bank Details
+                  <Card.Header style={{backgroundColor: '#656b96'}}>
+                    <Accordion.Toggle as={Button} variant="link" eventKey="0" style={{color:'white'}}>
+                     <strong>Search By Bank Details</strong> 
               </Accordion.Toggle>
                   </Card.Header>
                   <Accordion.Collapse eventKey="0">
@@ -94,13 +94,13 @@ class Search extends Component {
                       <Form>
                         <Form.Row>
                           <Form.Group as={Col} controlId="formCifId">
-                            <Form.Label>CIF</Form.Label>
+                            <Form.Label><strong>CIF</strong></Form.Label>
                             <Form.Control type="text" value={this.state.cif} onChange={evt => this.handleCifChange(evt)}
                               placeholder="Enter CIF Number" />
 
                           </Form.Group>
                           <Form.Group as={Col} controlId="formTranType">
-                            <Form.Label>Transaction Type </Form.Label>
+                            <Form.Label> <strong>Transaction Type</strong></Form.Label>
                             <Form.Control as="select" defaultValue="Choose...">
                               <option>Choose...</option>
                               <option>Debit</option>
@@ -108,7 +108,7 @@ class Search extends Component {
                             </Form.Control>
                           </Form.Group>
                           <Form.Group as={Col} controlId="formGridEmail">
-                            <Form.Label>Account Number</Form.Label>
+                            <Form.Label><strong>Account Number</strong></Form.Label>
                             <Form.Control type="email" placeholder="Enter Account Number" />
                           </Form.Group>
 
@@ -117,7 +117,7 @@ class Search extends Component {
 
                         <Form.Row>
                           <Form.Group as={Col} controlId="formGridState">
-                            <Form.Label>Country</Form.Label>
+                            <Form.Label><strong>Country</strong></Form.Label>
                             <Form.Control as="select" defaultValue="Choose..." value={this.state.country} onChange={evt => this.handleCountryChange(evt)}>
                               <option>Choose...</option>
                               <option>India</option>
@@ -126,7 +126,7 @@ class Search extends Component {
                           </Form.Group>
 
                           <Form.Group as={Col} controlId="formGridState">
-                            <Form.Label>State</Form.Label>
+                            <Form.Label><strong>State</strong></Form.Label>
                             <Form.Control as="select" defaultValue="Choose..." value={this.state.state} onChange={evt => this.handleStateChange(evt)}>
                               <option>Choose...</option>
                               <option>Maharashtra</option>
@@ -134,7 +134,7 @@ class Search extends Component {
                           </Form.Group>
 
                           <Form.Group as={Col} controlId="formGridState">
-                            <Form.Label>City</Form.Label>
+                            <Form.Label><strong>City</strong></Form.Label>
                             <Form.Control as="select" defaultValue="Choose...">
                               <option>Choose...</option>
                               <option>Pune</option>
@@ -142,7 +142,7 @@ class Search extends Component {
                           </Form.Group>
 
                           <Form.Group as={Col} controlId="formGridState">
-                            <Form.Label>Region</Form.Label>
+                            <Form.Label><strong>Region</strong></Form.Label>
                             <Form.Control as="select" defaultValue="Choose...">
                               <option>Choose...</option>
                               <option>APAC</option>
@@ -161,9 +161,11 @@ class Search extends Component {
                   </Accordion.Collapse>
                 </Card>
                 <Card>
-                  <Card.Header>
-                    <Accordion.Toggle as={Button} variant="link" eventKey="1">
-                      Search By Personal Details
+                 
+
+                  <Card.Header style={{backgroundColor: '#656b96'}}>
+                    <Accordion.Toggle as={Button} variant="link" eventKey="0" style={{color:'white'}}>
+                     <strong>Search By Personal Details</strong> 
               </Accordion.Toggle>
                   </Card.Header>
                   <Accordion.Collapse eventKey="1">
