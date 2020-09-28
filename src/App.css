@@ -47,6 +47,7 @@ background-image: url("./images/Hsbc_Image_edit.jpg");
 height: 100vh;
 width: 100%;
 background-repeat: no-repeat;
+background-size: 100%;
 
 }
 
@@ -120,4 +121,22 @@ margin-left: 6%; */
   to {
     transform: rotate(360deg);
   }
+}
+
+.manicon {
+      /* margin: 38%; */
+    /* margin-top: -4%; */
+    height: 79%;
+    width: 25%;
+    /* margin: -1%; */
+    margin-left: 36%;
+}
+.registrationlink{
+      /* margin: 2%; */
+      /* margin-left: 28%; */
+      /* margin-bottom: 1%; */
+      margin-top: 9%;
+  }
+.regilayout{
+  margin-top: 2%;
 }
