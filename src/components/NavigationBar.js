@@ -54,7 +54,7 @@ class NavigationBar extends Component {
         <Navbar.Brand href="#home" ><img src={logo1} style={{width:'10%'}}/><strong>HSBC</strong>  &nbsp; | At Risk Customer Protection</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end" style={{backgroundColor:'#e4c5d2'}}>
-        <Nav className="ml-auto" style={{color:"black"}}>
+        <Nav className="ml-auto" style={{color:"black",width: '118%'}}>
               <Nav.Item><Nav.Link href="/home"><strong>Home</strong></Nav.Link></Nav.Item> 
               <Nav.Item><Nav.Link href="/search"><strong>Search</strong></Nav.Link></Nav.Item> 
               <Nav.Item><Nav.Link href="/dataupload"><strong>Data Upload</strong></Nav.Link></Nav.Item> 
@@ -64,11 +64,21 @@ class NavigationBar extends Component {
                <Nav.Item><Nav.Link href="/help"><strong>Help</strong></Nav.Link></Nav.Item> 
                
              </Nav>
-            <Navbar.Text>
-             &nbsp; &nbsp; |&nbsp; Signed in as:  &nbsp; <a onClick={this.togglePop}> <i class="fas fa-user">&nbsp; {localStorage.getItem("name")}</i></a>
+            <Navbar.Text style={{
+    marginLeft: '-5%'
+}}>
+             Signed in as:  
+             
+             {localStorage.getItem("name")=="Bipil Raut"? <img class="rounded-circle" style={{width:'9%'}} alt="100x100" src="https://pbs.twimg.com/profile_images/1042073179215122432/Jxl-1ngC_400x400.jpg"
+          data-holder-rendered="true"></img> : localStorage.getItem("name")=="Abhishek Tripathi"?  <img class="rounded-circle" style={{width:'9%'}} alt="100x100" src="https://media-exp1.licdn.com/dms/image/C4E03AQEz1BxItUTjWA/profile-displayphoto-shrink_200_200/0?e=1606953600&v=beta&t=hc9A1Flhd98BuSK65ujb6d5st4l2SsmZmdwxr7d_Ddo"
+          data-holder-rendered="true"></img>:""}   
+            
+          {localStorage.getItem("name")}
+          
+       
            
             </Navbar.Text>
-            <Navbar.Text>  &nbsp; &nbsp;  <a href="/"> <i class="fas fa-sign-out-alt">&nbsp; Log out &nbsp;</i> </a></Navbar.Text>
+            <Navbar.Text>   <a href="/"> <i class="fas fa-sign-out-alt" style={{marginLeft: '-88%'}}> </i> </a></Navbar.Text>
              {/* <h2 class="my-5 h2">Basic example</h2> */}
 
         {/* <img class="rounded-circle" alt="100x100" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg"
