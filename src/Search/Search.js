@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Form, Button, FormGroup, FormControl, ControlLabel, Accordion, Card, Col } from "react-bootstrap";
 import axios from 'axios';
+import StickyHeadTable from '../searchTable/searchTable';
 
 
 class Search extends Component {
@@ -11,7 +12,7 @@ class Search extends Component {
     /* 1. Initialize Ref */
     this.state = {
       cif: "",
-      country:[],
+      country: [],
       state: "",
       city: "",
       region: "",
@@ -47,7 +48,7 @@ class Search extends Component {
   }
 
   SearchApi = () => {
-    window.location.pathname="/searchResult";
+    window.location.pathname = "/searchResult";
     // axios({
     //   method: 'post',
     //   url: "http://3.18.106.65:5000/search",
@@ -63,7 +64,7 @@ class Search extends Component {
     //   }
     // }).then(function (response) {
     //   const searchData = JSON.stringify(response);
-    
+
     //   const data = JSON.parse(searchData).data;
     //   console.log(data.SearchResponse);
     //   // route.push("/searchResul");
@@ -76,6 +77,7 @@ class Search extends Component {
   };
 
   render() {
+   
 
     return (
       <div class="container-fluid sp" style={{ marginTop: '-0%', marginBottom: '2%', marginLeft: '2%', width: '96%' }}>
@@ -84,10 +86,10 @@ class Search extends Component {
             <div class="col-md-12" style={{ marginTop: '2%' }}>
               <Accordion defaultActiveKey="0">
                 <Card>
-                  <Card.Header style={{backgroundColor: '#656b96'}}>
-                    <Accordion.Toggle as={Button} variant="link" eventKey="0" style={{color:'white'}}>
-                     <strong>Search By Bank Details</strong> 
-              </Accordion.Toggle>
+                  <Card.Header style={{ backgroundColor: 'rgba(212,228,239,1) ' }}>
+                    <Accordion.Toggle as={Button} variant="link" eventKey="0" style={{ color: 'black' }}>
+                      <strong>Search By Bank Details</strong>
+                    </Accordion.Toggle>
                   </Card.Header>
                   <Accordion.Collapse eventKey="0">
                     <Card.Body>
@@ -153,20 +155,23 @@ class Search extends Component {
 
                         </Form.Row>
 
-                        <Button variant="btn btn-danger" onClick={this.SearchApi}>
-                          Search
-          </Button>
+                        <Button variant="outline-danger" size="lg" active onClick={this.SearchApi}> 
+                        Search
+                </Button>
+                        {/* <Button variant="btn btn-danger" >
+                          
+          </Button> */}
                       </Form>
                     </Card.Body>
                   </Accordion.Collapse>
                 </Card>
                 <Card>
-                 
 
-                  <Card.Header style={{backgroundColor: '#656b96'}}>
-                    <Accordion.Toggle as={Button} variant="link" eventKey="0" style={{color:'white'}}>
-                     <strong>Search By Personal Details</strong> 
-              </Accordion.Toggle>
+
+                  <Card.Header style={{ backgroundColor: 'rgba(212,228,239,1) ' }}>
+                    <Accordion.Toggle as={Button} variant="link" eventKey="1" style={{ color: 'black' }}>
+                      <strong>Search By Personal Details</strong>
+                    </Accordion.Toggle>
                   </Card.Header>
                   <Accordion.Collapse eventKey="1">
                     <Card.Body>
@@ -185,13 +190,38 @@ class Search extends Component {
                         </Form.Group>
 
                       </Form.Row>
-                      <Button variant="success" type="submit">
+                      <Button variant="outline-danger" size="lg" active onClick={this.SearchApi}> 
                         Search
-          </Button>
+                </Button>
+                      {/* <Button variant="btn btn-danger" type="submit">
+                        Search
+          </Button> */}
                     </Card.Body>
                   </Accordion.Collapse>
                 </Card>
               </Accordion>
+            </div>
+          </div>
+          <div class="row " >
+            <div class="col-md-3" style={{ marginTop: '1%' }}>
+
+            </div>
+            <div class="col-md-3" style={{ marginTop: '1%' }}>
+
+            </div>
+            <div class="col-md-3" style={{ marginTop: '1%' }}>
+
+            </div>
+            <div class="col-md-3" style={{ marginTop: '1%' }}>
+          
+              <Button variant="outline-success" size="lg" style={{float:'right'}} active>
+                Export CSV  <i class="fa fa-download" aria-hidden="true"></i>
+                </Button>
+            </div>
+          </div>
+          <div class="row " >
+            <div class="col-md-12" style={{ marginTop: '1%' }}>
+              <StickyHeadTable />
             </div>
           </div>
 
