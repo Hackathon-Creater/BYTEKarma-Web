@@ -21,6 +21,7 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Registration from './Registration/Registration';
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody } from 'mdbreact';
 import profileDetails from "./Profile/profileDetails";
+import Header from './components/Header';
 var login11=false;
 class App extends React.Component {
   constructor(props) {
@@ -236,11 +237,12 @@ class App extends React.Component {
     } else {
       return (
 
-        <React.Fragment>
+        
           <Router>
+            <Header></Header>
           <Sidebar />
             <NavigationBar />
-            <profileDetails></profileDetails>  
+            {/* <profileDetails></profileDetails>   */}
             <Switch>
               <Route exact path="/home" component={Home} />
               <Route exact path="/search" component={Search} />
@@ -256,7 +258,7 @@ class App extends React.Component {
             <Footer></Footer>
           </Router>
          
-        </React.Fragment>
+       
       );
       
     }

@@ -194,6 +194,23 @@ class Home extends React.Component {
             ]
         }
     }
+    barChartDaily = {
+        data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            datasets: [
+              {
+                label: 'Daily Status',
+                backgroundColor: 'rgba(255,99,132,0.2)',
+                borderColor: 'rgba(255,99,132,1)',
+                borderWidth: 1,
+                stack: 1,
+                hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+                hoverBorderColor: 'rgba(255,99,132,1)',
+                data: [65, 59, 80, 81, 56, 55, 40]
+              },
+            ]
+        }
+    }
     componentWillMount() {
         var statusRes = "";
         // let currentComponent = this;
@@ -221,236 +238,233 @@ class Home extends React.Component {
     }
     render() {
         return (
-            <div class="container-fluid sp" style={{ marginTop: '-0%', marginBottom: '2%', marginLeft: '2%', width: '96%' }}>
-                <div class="container-fluid sp">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <div class="row">
-                                <div class="col-md-12" style={{ marginTop: '1%', marginLeft: '0%' }}>
-
-                                    <Card style={{ width: '17rem', boxShadow: "0px 3px 10px 11px rgba(0,0,0,0.099)", border: "0px solid #fff" }}>
-                                        <div class="homepagebackgroundcolor">
-                                            <Card.Body>
-                                                <Card.Title>Total Customers</Card.Title>
-                                                <Card.Subtitle className="mb-2 text-muted">Onboarded </Card.Subtitle>
-                                                <Card.Text style={{ fontSize: "-webkit-xxx-large", textAlign: "center", }}>
-                                                    <div className="row">
-                                                        <div class="col-md-6">
-
-                                                            {localStorage.getItem("total_cust")}
-                                                        </div>
-                                                        <div class="col-md-6 totalcustomericon">
-
-                                                        </div>
-                                                    </div>
-                                                </Card.Text>
-                                                <Card.Link href="/search">See More Details</Card.Link>
-
-                                            </Card.Body>
-                                        </div>
-                                    </Card>
-
-
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12" style={{ marginTop: '1%', }}>
-                                    <Card style={{ width: '17rem', boxShadow: "0px 3px 10px 11px rgba(0,0,0,0.099)", border: "0px solid #fff" }}>
-                                        <div class="homepagebackgroundcolor">
-                                            <Card.Body>
-                                                <Card.Title>Negative Spending Customers</Card.Title>
-                                                <Card.Subtitle className="mb-2 text-muted">In Ratio </Card.Subtitle>
-                                                <Card.Text style={{ fontSize: "-webkit-xxx-large", textAlign: "center", }}>
-                                                    <div className="row">
-                                                        <div class="col-md-6">
-                                                            {localStorage.getItem("risky_cust")}%
-                                        </div>
-                                                        <div class="col-md-6 negitiveCusticon">
-                                                            {/* <div class="negitiveCusticon"></div> */}
-                                                        </div>
-                                                    </div>
-                                                </Card.Text>
-                                                <Card.Link href="/search">See More Details</Card.Link>
-
-                                            </Card.Body>
-                                        </div>
-                                    </Card>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12" style={{ marginTop: '1%', }}>
-                                    <Card style={{ width: '17rem', boxShadow: "0px 3px 10px 11px rgba(0,0,0,0.099)", border: "0px solid #fff" }}>
-                                        <div class="homepagebackgroundcolor">
-                                            <Card.Body>
-                                                <Card.Title>Non Negative Spending Customers</Card.Title>
-                                                <Card.Subtitle className="mb-2 text-muted">In Ratio </Card.Subtitle>
-                                                <Card.Text style={{ fontSize: "-webkit-xxx-large", textAlign: "center", }}>
-                                                    <div className="row">
-                                                        <div class="col-md-6">
-                                                            {100 - localStorage.getItem("risky_cust")}%
-                                        </div>
-                                                        <div class="col-md-6 CustomersatDefaulticon">   </div>
-                                                    </div>
-                                                </Card.Text>
-                                                <Card.Link href="/search">See More Details</Card.Link>
-
-                                            </Card.Body>
-                                        </div>
-                                    </Card>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12" style={{ marginTop: '1%', }}>
-                                    <Card style={{ width: '17rem', height: '13rem', boxShadow: "0px 3px 10px 11px rgba(0,0,0,0.099)", border: "0px solid #fff" }}>
-                                        <div class="homepagebackgroundcolor">
-                                            <Card.Body>
-                                                <Card.Title>Customers Advised</Card.Title>
-                                                <Card.Subtitle className="mb-2 text-muted">In Ratio </Card.Subtitle>
-                                                <Card.Text style={{ fontSize: "-webkit-xxx-large", textAlign: "center" }}>
-                                                    <div className="row">
-                                                        <div class="col-md-6">
-                                                            {Math.round(localStorage.getItem("contacted_cust"))}
-                                                            <ProgressBar variant="success" now={Math.round(localStorage.getItem("contacted_cust"))} /> </div>
-                                                        <div class="col-md-6 advisedcusticon">   </div>
-                                                    </div>
-
-                                                </Card.Text>
-
-                                                <Card.Link href="/search">See More Details</Card.Link>
-
-                                            </Card.Body>
-                                        </div>
-                                    </Card>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4" style={{ marginLeft: '7%', }}>
-                            <div class="row" >
-                                <Line data={this.boundryArea.boundryAreadata} />
-                            </div>
-                            <div class="row" >
-                                <h6>Spending categories of Customers
-</h6>
-                                <Pie data={this.piachart.piachartdata} />
-                            </div>
-                            <div class="row" >
-                                <h6>Top 3 Spending categories of Customers by Globally
-</h6>
-                                <HorizontalBar data={this.horizontalBar.data} />
-                            </div>
-                        </div>
-
-                        <div class="col-md-4" style={{ marginLeft: '7%', }}>
-                            <div class="row">
-                                <h6>Customer counseled by Month of Year
-
-</h6>
-                                <Line data={this.stokeArea.data} />
-                            </div>
-                            <div class="row">
-                                <h6>Defaulted vs. non Defaulted users
-
-
-</h6>
-
-                                <Bar
-                                    data={this.barChart.data}
-                                    width={10}
-                                    height={150}
-                                    options={{
-                                        maintainAspectRatio: false
-                                    }}
-                                />
-                            </div>
-                            <div class="row" >
-                                <h6>Top 3 Spending categories of Country
-</h6>
-                                <HorizontalBar data={this.horizontalBar.data} />
-                            </div>
-                        </div>
-                    </div>
-                    {/* <div class="row" style={{ marginLeft: '5%' }} >
-
-                        <div class="col-md-4 col-sm-4 col-xs-12" style={{ marginTop: '1%', marginLeft: '0%' }}>
-                            <Card style={{ width: '17rem', boxShadow: "0px 3px 10px 11px rgba(0,0,0,0.099)", border: "0px solid #fff" }}>
+            <div class="container-fluid sp" style={{ marginTop: '2%', marginBottom: '2%', marginLeft: '2%', width: '96%',height:'auto' }}>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <Card style={{ width: '21rem', boxShadow: "0px 3px 10px 11px rgba(0,0,0,0.099)", border: "0px solid #fff" }}>
+                            <div class="bg-jade text-white">
                                 <Card.Body>
                                     <Card.Title>Total Customers</Card.Title>
-                                    <Card.Subtitle className="mb-2 text-muted">Onboarded </Card.Subtitle>
+                                    <Card.Subtitle className="mb-2 text-muted text-white">Onboarded </Card.Subtitle>
                                     <Card.Text style={{ fontSize: "-webkit-xxx-large", textAlign: "center", }}>
-                                        {localStorage.getItem("total_cust")}
+                                        <div className="row">
+                                            <div class="col-md-6">
+
+                                                <span id="cases" class="text-5xl text-center font-light rounded">{localStorage.getItem("total_cust")} </span>
+                                            </div>
+                                            <div class="col-md-6 totalcustomericon">
+
+                                            </div>
+                                        </div>
                                     </Card.Text>
-                                    <Card.Link href="/search">See More Details</Card.Link>
+                                    <Card.Link href="/search" class="text-white">See More Details</Card.Link>
 
                                 </Card.Body>
-                            </Card>
-                        </div>
-                       
-                        <div class="col-md-4 col-sm-4 col-xs-12" style={{ marginTop: '1%', }}>
-                            <Card style={{ width: '17rem', height: '13rem', boxShadow: "0px 3px 10px 11px rgba(0,0,0,0.099)", border: "0px solid #fff" }}>
+                            </div>
+                        </Card>
+                    </div>
+                    <div class="col-sm-2">
+                        <Card style={{ width: '21rem', boxShadow: "0px 3px 10px 11px rgba(0,0,0,0.099)", border: "0px solid #fff" }}>
+                            <div class="bg-rag-green text-white">
+                                <Card.Body>
+                                    <Card.Title>Negative Spending Customers</Card.Title>
+                                    <Card.Subtitle className="mb-2 text-muted text-white"> <strong class="text-white">In Ratio</strong> </Card.Subtitle>
+                                    <Card.Text style={{ fontSize: "-webkit-xxx-large", textAlign: "center", }}>
+                                        <div className="row">
+                                            <div class="col-md-6">
+
+                                                <span id="cases" class="text-5xl text-center font-light rounded">{localStorage.getItem("risky_cust")}% </span>
+                                            </div>
+                                            <div class="col-md-6 negitiveCusticon">
+
+                                            </div>
+                                        </div>
+                                    </Card.Text>
+                                    <Card.Link href="/search" class="text-white">See More Details</Card.Link>
+
+                                </Card.Body>
+                            </div>
+                        </Card>
+                    </div>
+                    <div class="col-sm-2">
+                        <Card style={{ width: '21rem', boxShadow: "0px 3px 10px 11px rgba(0,0,0,0.099)", border: "0px solid #fff" }}>
+                            <div class="bg-rag-green text-white">
+                                <Card.Body>
+                                    <Card.Title>Non-Negative Spending Cust...</Card.Title>
+                                    <Card.Subtitle className="mb-2 text-muted text-white"> <strong class="text-white">In Ratio</strong> </Card.Subtitle>
+                                    <Card.Text style={{ fontSize: "-webkit-xxx-large", textAlign: "center", }}>
+                                        <div className="row">
+                                            <div class="col-md-7">
+
+                                                <span id="cases" class="text-5xl text-center font-light rounded">
+                                                    {100 - localStorage.getItem("risky_cust")}%
+                                                               </span>
+                                            </div>
+                                            <div class="col-md-5 CustomersatDefaulticon">
+
+                                            </div>
+                                        </div>
+                                    </Card.Text>
+                                    <Card.Link href="/search" class="text-white">See More Details</Card.Link>
+
+                                </Card.Body>
+                            </div>
+                        </Card>
+                    </div>
+                    <div class="col-sm-2">
+                        <Card style={{ width: '21rem', boxShadow: "0px 3px 10px 11px rgba(0,0,0,0.099)", border: "0px solid #fff" }}>
+                            <div class="bg-rag-green text-white">
                                 <Card.Body>
                                     <Card.Title>Customers Advised</Card.Title>
-                                    <Card.Subtitle className="mb-2 text-muted">In Ratio </Card.Subtitle>
+                                    <Card.Subtitle className="mb-2 text-muted text-white"> <strong class="text-white">In Ratio</strong> </Card.Subtitle>
                                     <Card.Text style={{ fontSize: "-webkit-xxx-large", textAlign: "center", }}>
-                                     {Math.round(localStorage.getItem("contacted_cust"))}
-                                        <ProgressBar variant="success" now={Math.round(localStorage.getItem("contacted_cust"))} />
-                                    </Card.Text>
+                                        <div className="row">
+                                            <div class="col-md-6">
 
-                                    <Card.Link href="/search">See More Details</Card.Link>
+                                                <span id="cases" class="text-5xl text-center font-light rounded">
+                                                    {Math.round(localStorage.getItem("contacted_cust"))}
+                                                </span>
+                                            </div>
+                                            <div class="col-md-6 advisedcusticon">
+
+                                            </div>
+                                        </div>
+                                    </Card.Text>
+                                    <Card.Link href="/search" class="text-white">See More Details</Card.Link>
 
                                 </Card.Body>
-                            </Card>
-                        </div>
-
+                            </div>
+                        </Card>
                     </div>
+                    <div class="col-sm-2">
+                        <Card style={{ width: '21rem', boxShadow: "0px 3px 10px 11px rgba(0,0,0,0.099)", border: "0px solid #fff" }}>
+                            <div class="bg-rag-green text-white">
+                                <Card.Body>
+                                    <Card.Title>new card</Card.Title>
+                                    <Card.Subtitle className="mb-2 text-muted text-white"> <strong class="text-white">In Ratio</strong> </Card.Subtitle>
+                                    <Card.Text style={{ fontSize: "-webkit-xxx-large", textAlign: "center", }}>
+                                        <div className="row">
+                                            <div class="col-md-7">
 
-                    <div class="row">
-                        <div style={{ marginLeft: '5%', width: '45%', maxHeight: '100%', marginTop: '3%' }}>
-                            <MDBContainer>
-                                <h6 className="mt-5">Average Spending Patern</h6>
-                                <Bar data={
-                                    {
-                                        labels: ["Food", "Gambling", "Shoping", "Credit Card Bill", "Movie", "Amazon"],
-                                        datasets: [
-                                            {
-                                                label: "% of Spending",
-                                                data: [localStorage.getItem("food_avg"), localStorage.getItem("gambling_avg"), localStorage.getItem("shopping_avg"), localStorage.getItem("ccbill_avg")
-                                                , localStorage.getItem("movie_avg"),localStorage.getItem("movie_avg")],
-                                                backgroundColor: [
-                                                    "rgba(255, 134,159,0.4)",
-                                                    "rgba(98,  182, 239,0.4)",
-                                                    "rgba(255, 218, 128,0.4)",
-                                                    "rgba(113, 205, 205,0.4)",
-                                                    "rgba(170, 128, 252,0.4)",
-                                                    "rgba(255, 177, 101,0.4)"
-                                                ],
-                                                borderWidth: 2,
-                                                borderColor: [
-                                                    "rgba(255, 134, 159, 1)",
-                                                    "rgba(98,  182, 239, 1)",
-                                                    "rgba(255, 218, 128, 1)",
-                                                    "rgba(113, 205, 205, 1)",
-                                                    "rgba(170, 128, 252, 1)",
-                                                    "rgba(255, 177, 101, 1)"
-                                                ]
-                                            }
-                                        ]
-                                    }
-                                } options={this.state3.barChartOptions} />
-                            </MDBContainer>
-                        </div>
-                        <div style={{ marginLeft: '5%', width: '30%', maxHeight: '80%', marginTop: '3%' }}>
-                            <MDBContainer>
-                                <h6 className="mt-5">PD of Customer </h6>
-                                <Doughnut data={this.state1.dataDoughnut} options={{ responsive: true }} />
-                            </MDBContainer>
-                        </div>
-                    </div> */}
+                                                <span id="cases" class="text-5xl text-center font-light rounded">
+                                                    {100 - localStorage.getItem("risky_cust")}%
+                                                               </span>
+                                            </div>
+                                            <div class="col-md-5 CustomersatDefaulticon">
 
+                                            </div>
+                                        </div>
+                                    </Card.Text>
+                                    <Card.Link href="/search" class="text-white">See More Details</Card.Link>
+
+                                </Card.Body>
+                            </div>
+                        </Card>
+                    </div>
+                    <div class="col-sm-2">
+                        <Card style={{ width: '21rem', boxShadow: "0px 3px 10px 11px rgba(0,0,0,0.099)", border: "0px solid #fff" }}>
+                            <div class="bg-rag-green text-white">
+                                <Card.Body>
+                                    <Card.Title>New Card</Card.Title>
+                                    <Card.Subtitle className="mb-2 text-muted text-white"> <strong class="text-white">In Ratio</strong> </Card.Subtitle>
+                                    <Card.Text style={{ fontSize: "-webkit-xxx-large", textAlign: "center", }}>
+                                        <div className="row">
+                                            <div class="col-md-7">
+
+                                                <span id="cases" class="text-5xl text-center font-light rounded">
+                                                    {100 - localStorage.getItem("risky_cust")}%
+                                                               </span>
+                                            </div>
+                                            <div class="col-md-5 CustomersatDefaulticon">
+
+                                            </div>
+                                        </div>
+                                    </Card.Text>
+                                    <Card.Link href="/search" class="text-white">See More Details</Card.Link>
+
+                                </Card.Body>
+                            </div>
+                        </Card>
+                    </div>
                 </div>
-            </div>
+                <br></br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h4>
+                        Customer Visited by Month of Year
+                        </h4>
+                        <Line data={this.boundryArea.boundryAreadata} />
+                    </div>
+                    <div class="col-sm-4">
+                        <h4>Customer counseled by Month of Year
+
+</h4>
+                        <Line data={this.stokeArea.data} />
+                    </div>
+                    <div class="col-sm-4">
+                    <h4>Spending categories of Customers
+</h4>
+                                <Pie data={this.piachart.piachartdata} />
+                    </div>
+                </div>
+                <br></br>
+                <div class="row">
+                    <div class="col-sm-4">
+                    <h4>Defaulted vs. non Defaulted users
+
+
+</h4>
+
+                                <Bar height={null}
+        height={248}
+        width={300}
+    options={{
+        aspectRatio: 1,  // this would be a 1:1 aspect ratio
+    }}
+                                    data={this.barChart.data}
+                                    
+                                />
+                    </div>
+                    <div class="col-sm-8">
+                    <h4>Daily Status
+
+
+</h4>
+
+                                <Bar
+                                height={120}
+                                width={300}
+                            options={{
+                                aspectRatio: 1,  // this would be a 1:1 aspect ratio
+                            }}
+                                    data={this.barChartDaily.data}
+                                    
+                                />
+                    </div>
+                    </div>
+                <br></br>
+                <div class="row">
+                    <div class="col-sm-4">
+                    <h4>Top 3 Spending categories of Customers by Globally
+</h4>
+                                <HorizontalBar data={this.horizontalBar.data} />
+                            </div>
+                   
+                    <div class="col-sm-4">
+                    <h4>Top 3 Spending categories of Customers by Country
+</h4>
+                                <HorizontalBar data={this.horizontalBar.data} />
+                    </div>
+                    <div class="col-sm-4">
+                    <h4>Top 3 Spending categories of Customers by Region
+</h4>
+                                <HorizontalBar data={this.horizontalBar.data} />
+                    </div>
+                </div>
+                <br></br>
+                <br></br>
+           
+           </div>
         );
     }
 }
