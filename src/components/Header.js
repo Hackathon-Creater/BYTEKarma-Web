@@ -1,9 +1,20 @@
 import React, { Component } from 'react';
 import { Nav, Navbar, Form, FormControl } from 'react-bootstrap';
-
+import $ from "jquery";
+const isActive = {
+  fontWeight: "bold",
+  backgroundColor: "rgba(255, 255, 255, 0.1)",
+};
 
 class Header extends Component {
+ 
+  
+
+  
   render() {
+    let pathname = window.location.pathname;
+   
+
     return (
       <div>
 
@@ -19,13 +30,13 @@ class Header extends Component {
           At Risk Customer Protection
           </div>
           <Nav className="ml-auto ml-3 border-l border-pewter text-lg flex flex-grow w-full pl-3 text-white" style={{color:"black",width: '298%'}}>
-              <Nav.Item><Nav.Link href="/home" id="navhome" class="text-white">Dashboard</Nav.Link></Nav.Item> 
-              <Nav.Item><Nav.Link href="/search" style={{color:'white'}}>Search</Nav.Link></Nav.Item> 
-              <Nav.Item><Nav.Link href="/dataupload" style={{color:'white'}}>Data Upload</Nav.Link></Nav.Item> 
-              <Nav.Item><Nav.Link href="/policy" style={{color:'white'}}>Privacy Policy</Nav.Link></Nav.Item> 
+              <Nav.Item><Nav.Link href="/home" id="navhome"  className={pathname =='/home' ? 'text-blue' : 'text-white'}>Dashboard</Nav.Link></Nav.Item> 
+              <Nav.Item><Nav.Link href="/search" id="navsearch" className={pathname =='/search' ? 'text-blue' : 'text-white'} >Search</Nav.Link></Nav.Item> 
+              <Nav.Item><Nav.Link href="/dataupload" id="navdataupload" className={pathname =='/dataupload' ? 'text-blue' : 'text-white'}>Data Upload</Nav.Link></Nav.Item> 
+              <Nav.Item><Nav.Link href="/policy" id="navprovacypolicy" className={pathname =='/policy' ? 'text-blue' : 'text-white'}>Privacy Policy</Nav.Link></Nav.Item> 
             
-               <Nav.Item><Nav.Link href="/carepackage" style={{color:'white'}}>Care Package</Nav.Link></Nav.Item>
-               <Nav.Item><Nav.Link href="/help" style={{color:'white'}}>Help</Nav.Link></Nav.Item> 
+               <Nav.Item><Nav.Link href="/carepackage" id="navcarepackage" className={pathname =='/carepackage' ? 'text-blue' : 'text-white'}>Care Package</Nav.Link></Nav.Item>
+               <Nav.Item><Nav.Link href="/help" id="navhelp" className={pathname =='/help' ? 'text-blue' : 'text-white'}>Help</Nav.Link></Nav.Item> 
                
              </Nav>
              <div style={{
