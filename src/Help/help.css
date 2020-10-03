@@ -2,20 +2,7 @@
 
 
   
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  strong {
-    font-weight: 500;
-    color: #1D2B36;
-  }
-  
-  strong {
-    -webkit-font-smoothing: auto;
-  }
-  
+ 
   /* Web fonts */
   
   /* Graphik Medium */
