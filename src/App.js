@@ -22,6 +22,7 @@ import Registration from './Registration/Registration';
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody } from 'mdbreact';
 import profileDetails from "./Profile/profileDetails";
 import Header from './components/Header';
+import { Contactus } from './contactus/contactus';
 var login11=false;
 class App extends React.Component {
   constructor(props) {
@@ -187,7 +188,7 @@ class App extends React.Component {
               
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Username</Form.Label>
-                <Form.Control type="text" placeholder="Enter email" value={this.state.username} onChange={evt => this.handleusernameChange(evt)}/>
+                <Form.Control type="text" class="bg-lock-email" placeholder="Enter email" value={this.state.username} onChange={evt => this.handleusernameChange(evt)}/>
                 <Form.Text className="text-muted" >
                   We'll never share your username with anyone else.
       </Form.Text>
@@ -195,7 +196,7 @@ class App extends React.Component {
     
               <Form.Group controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" value={this.state.password} onChange={evt => this.handlepasswordChange(evt)}/>
+                <Form.Control  class="bg-lock-icon" type="password" placeholder="Password" value={this.state.password} onChange={evt => this.handlepasswordChange(evt)}/>
               </Form.Group>
               <Form.Group controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label="Remember me" />
@@ -253,6 +254,8 @@ class App extends React.Component {
               <Route path="/carepackage" component={Carepackage} />
               <Route exact path="/help" component={Help} />
               <Route exact path="/registration" component={Registration} />
+              <Route exact path="/contactus" component={Contactus} />
+              
               {/* <Route component={NoMatch} /> */}
             </Switch>
             <Footer></Footer>

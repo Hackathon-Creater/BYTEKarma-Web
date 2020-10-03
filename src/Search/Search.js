@@ -155,7 +155,11 @@ class Search extends Component {
 
                         </Form.Row>
 
-                        <Button variant="outline-danger" size="lg" active onClick={this.SearchApi}> 
+                        <Button variant="outline-danger" size="lg" style={{
+    float: 'right',
+    margin: '1%',
+    width: '9%'
+}} active onClick={this.SearchApi}> 
                         Search
                 </Button>
                         {/* <Button variant="btn btn-danger" >

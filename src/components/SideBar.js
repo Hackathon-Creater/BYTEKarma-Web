@@ -32,6 +32,7 @@ const StyledNavItem = styled.div`
 
 class SideNav extends React.Component {
     constructor(props) {
+      let pathname = window.location.pathname;
         super(props);
         this.state = {
           activePath: '/',
@@ -39,7 +40,7 @@ class SideNav extends React.Component {
             {
               path: '/Home', /* path is used as id to check which NavItem is active basically */
               name: 'Home',
-              css: 'fa fa-home',
+              css: 'fa fa-home ',
               key: 1 /* Key is required, else console throws error. Does this please you Mr. Browser?! */
             },
             {
