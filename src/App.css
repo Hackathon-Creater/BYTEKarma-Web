@@ -125,11 +125,7 @@ margin-left: 6%; */
     /* margin-top: 9%;
 margin-left: 6%; */
 }
-.navSelected{
-    text-decoration: underline;
 
-    text-decoration-color: red;
-}
 .animate {
     -webkit-animation: spinit 0.2s 5;
     -moz-animation: spinit 0.2s 5;
@@ -7145,7 +7141,9 @@ h3 {
 .text-white {
     color: #fff
 }
-
+.text-blue {
+    color: blue
+}
 .text-charcoal {
     color: #333
 }
