@@ -4,14 +4,14 @@ import {  Link } from "react-router-dom";
 
 const StyledSideNav = styled.div`
   position: fixed;     /* Fixed Sidebar (stay in place on scroll and position relative to viewport) */
-  height: 85%;
+  height: 90%;
   width: 40px;     /* Set the width of the sidebar */
   z-index: 1;      /* Stay on top of everything */
   top: 3.7em;      /* Stay at the top */
   background-color: #222; /* Black */
   overflow-x: hidden;     /* Disable horizontal scroll */
-  padding-top: 30px;
-  padding-left:0.3%;
+  padding-top: 33px;
+  padding-left:0.6%;
  
 
 `;

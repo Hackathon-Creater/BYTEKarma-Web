@@ -17,9 +17,11 @@ class Search extends Component {
       city: "",
       region: "",
       name: "",
-      gender: ""
+      gender: "",
+      hide:true
 
     };
+
 
     // this.cif = React.createRef(); 
   }
@@ -48,30 +50,33 @@ class Search extends Component {
   }
 
   SearchApi = () => {
-    window.location.pathname = "/searchResult";
-    // axios({
-    //   method: 'post',
-    //   url: "http://3.18.106.65:5000/search",
-    //   headers: { 'Content-Type': 'application/json' },
-    //   data: {
-    //     "cif": this.state.cif,
-    //     "country": this.state.country.length > 0?this.state.country:"",
-    //     "state": this.state.state,
-    //     "city": "",
-    //     "region": "",
-    //     "name": "",
-    //     "gender": ""
-    //   }
-    // }).then(function (response) {
-    //   const searchData = JSON.stringify(response);
+    this.setState({
+      hide:false
+    })
+   // window.location.pathname = "/searchResult";
+    axios({
+      method: 'post',
+      url: "http://3.18.106.65:5000/search",
+      headers: { 'Content-Type': 'application/json' },
+      data: {
+        "cif": this.state.cif,
+        "country": this.state.country.length > 0?this.state.country:"",
+        "state": this.state.state,
+        "city": "",
+        "region": "",
+        "name": "",
+        "gender": ""  
+      }
+    }).then(function (response) {
+      const searchData = JSON.stringify(response);
 
-    //   const data = JSON.parse(searchData).data;
-    //   console.log(data.SearchResponse);
-    //   // route.push("/searchResul");
-    //   localStorage.setItem('searchResult', JSON.stringify(data.SearchResponse));
-    //   window.location.pathname="/searchResult";
+      const data = JSON.parse(searchData).data;
+      console.log(data.SearchResponse);
+      // route.push("/searchResul");
+      localStorage.setItem('searchResult', JSON.stringify(data.SearchResponse));
+      window.location.pathname="/searchResult";
 
-    // });
+    });
 
     // axios.post("http://3.18.106.65:5000/search/"+this.state); 
   };
@@ -206,6 +211,9 @@ class Search extends Component {
               </Accordion>
             </div>
           </div>
+          {
+              this.state.hide?null:
+          <div>
           <div class="row " >
             <div class="col-md-3" style={{ marginTop: '1%' }}>
 
@@ -224,11 +232,15 @@ class Search extends Component {
             </div>
           </div>
           <div class="row " >
-            <div class="col-md-12" style={{ marginTop: '1%' }}>
+           
+              <div id="searchTableId" class="col-md-12" style={{ marginTop: '1%' }}>
               <StickyHeadTable />
             </div>
+           
+            
           </div>
-
+          </div>
+         }
         </div>
       </div>
     )
