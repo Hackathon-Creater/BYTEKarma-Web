@@ -8,6 +8,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
+import axios from 'axios';
 
 const columns = [
   { id: 'CIF', label: 'CIF', minWidth: 170  },
@@ -66,22 +67,45 @@ export default function StickyHeadTable() {
   };
   if (JSON.parse(localStorage.getItem("searchResult")) !== "no results found") {
     Object.entries(JSON.parse(localStorage.getItem("searchResult"))).map(([index, value]) => {
-
+        
         var obj = value;
+        if(rows.length < 1){
         rows.push(obj);
+        }
+        
         console.log(obj.cif);
+        return;
     });
    
 } else {
   rows=[];
 }
+
+const clickRow = (row) => {
+  console.log(row);
+  axios({
+      method: 'post',
+      url: "http://18.221.237.209:5000/getCountryCategory",
+      headers: { 'Content-Type': 'application/json' },
+      data: {
+        // "country":String (e.target.textContent)
+      }
+    }).then(function (response) {
+
+      // console.log(e.target.textContent);
+    })
+  .catch((error) => {
+      console.log(error);
+  });
+
+};
   // for(let i=0;i<4;i++){
   //   rows.push({CIF:1,NAME:'Bipil',ACCOUNT_NUMBER:123,STATE:'m',COUNTRY:'INDIA'});
   // }
   return (
     <Paper className={classes.root} >
       <TableContainer className={classes.container} >
-        <Table stickyHeader aria-label="sticky table">
+        <Table stickyHeader aria-label="sticky table table-striped table-hover">
           <TableHead >
             <TableRow >
               {columns.map((column) => (
@@ -98,7 +122,7 @@ export default function StickyHeadTable() {
           <TableBody>
             {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
               return (
-                <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                <TableRow onClick={(row) => clickRow(row)} hover role="checkbox" tabIndex={-1} key={row.code}>
                   {columns.map((column) => {
                     const value = row[column.id];
                     return (
