@@ -105,6 +105,7 @@ const clickRow = (e) => {
        localStorage.setItem('spendingDetails', JSON.stringify(data.spendingDetails));
        localStorage.setItem('carePackageDetails', JSON.stringify(data.carePackageDetails));
        localStorage.setItem('spendingToEarningRatio', JSON.stringify(data.spendingToEarningRatio));
+       localStorage.setItem('customerDetails', JSON.stringify(data.customerDetails));
        window.location.pathname="/searchResult";
     })
   .catch((error) => {

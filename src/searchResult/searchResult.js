@@ -5,6 +5,8 @@ import { Form, Button, FormGroup, FormControl, ControlLabel, Accordion, Card, Co
 import axios from 'axios';
 import { Bar, Doughnut, Line, Pie, HorizontalBar } from "react-chartjs-2";
 
+
+
 class searchResult extends Component {
 
     constructor(props) {
@@ -43,17 +45,29 @@ class searchResult extends Component {
         }
         this.barChart = {
             data: {
-                labels: ['Amazone', 'Credit Card Bill','Shopping','Gambling'],
+                labels: ['1', '2','3','4'],
                 datasets: [
                     {
-                        label: 'PREDICTED GAMBLING DATA',
-                        backgroundColor: 'skyblue',
-                        borderColor: 'rgba(255,99,132,1)',
+                        label: "Actual Gambling Value",
+                        backgroundColor: "rgba(255,99,132,0.2)",
+                        borderColor: "rgba(255,99,132,1)",
                         borderWidth: 1,
-                        hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-                        hoverBorderColor: 'rgba(255,99,132,1)',
-                        data: [24, 30, 40,45, 20]
-                    }
+                        //stack: 1,
+                        hoverBackgroundColor: "rgba(255,99,132,0.4)",
+                        hoverBorderColor: "rgba(255,99,132,1)",
+                        data: [65, 59, 80, 81, 56, 55, 40]
+                      },
+            
+                      {
+                        label: "Predicted Gambling Value",
+                        backgroundColor: "rgba(155,231,91,0.2)",
+                        borderColor: "rgba(255,99,132,1)",
+                        borderWidth: 1,
+                        //stack: 1,
+                        hoverBackgroundColor: "rgba(255,99,132,0.4)",
+                        hoverBorderColor: "rgba(255,99,132,1)",
+                        data: [45, 79, 50, 41, 16, 85, 20]
+                      }
                 ]
             }
         }
@@ -89,10 +103,14 @@ class searchResult extends Component {
         ;
 
 
+       
+
     };
 
     componentWillMount() {
-        let objarry = [];
+     
+       
+
         // if (JSON.parse(localStorage.getItem("searchResult")) !== "no results found") {
         //     Object.entries(this.state.myObjStr).map(([index, value]) => {
 
@@ -108,11 +126,72 @@ class searchResult extends Component {
         //         obj: []
         //     });
         // }
+
+        // localStorage.setItem('bankDetails', JSON.stringify(data.bankDetails));
+        // localStorage.setItem('carePackageDetails', JSON.stringify(data.carePackageDetails));
+        // localStorage.setItem('negativeSpendingTrend', JSON.stringify(data.negativeSpendingTrend));
+        // localStorage.setItem('podTrend', JSON.stringify(data.podTrend));
+        // localStorage.setItem('predictedGamblingData', JSON.stringify(data.predictedGamblingData));
+        // localStorage.setItem('spendingDetails', JSON.stringify(data.spendingDetails));
+        // localStorage.setItem('carePackageDetails', JSON.stringify(data.carePackageDetails));
+        // localStorage.setItem('spendingToEarningRatio', JSON.stringify(data.spendingToEarningRatio));
+        // localStorage.setItem('customerDetails', JSON.stringify(data.customerDetails));
+
+        let cust_deatils=JSON.parse(localStorage.getItem("customerDetails"));
+        let bank_details=JSON.parse(localStorage.getItem("bankDetails"));
+
+        
+        localStorage.setItem("name",cust_deatils.name);
+        localStorage.setItem("city",cust_deatils.city);
+        localStorage.setItem("state",cust_deatils.state);
+        localStorage.setItem("country",cust_deatils.country);
+        localStorage.setItem("region",cust_deatils.region);
+        localStorage.setItem("email",cust_deatils.email);
+        localStorage.setItem("gender",cust_deatils.gender);
+
+
+        console.log(bank_details);
+        localStorage.setItem("cif",bank_details.cif);
+
+
+        axios({
+            method: 'post',
+            url: "http://18.221.237.209:5000/getPredictionDetails",
+            headers: { 'Content-Type': 'application/json' },
+            data: {
+              "cif":localStorage.getItem("cif")
+            }
+          }).then(function (response) {
+              console.log("************");
+              console.log(response);
+           
+            // localStorage.setItem("reg_label_1",response.data[0].SUMMARY_OF_TRANSACTION);
+            // localStorage.setItem("reg_label_2",response.data[1].SUMMARY_OF_TRANSACTION);
+            // localStorage.setItem("reg_label_3",response.data[2].SUMMARY_OF_TRANSACTION);
+
+            // localStorage.setItem("reg_label_1_data",response.data[0].AMOUNT_SPENT);
+            // localStorage.setItem("reg_label_2_data",response.data[1].AMOUNT_SPENT);
+            // localStorage.setItem("reg_label_3_data",response.data[2].AMOUNT_SPENT);
+
+
+            console.log(response.data[0].SUMMARY_OF_TRANSACTION);
+            console.log(response.data[0].AMOUNT_SPENT);
+           
+            
+            
+          })
+        .catch((error) => {
+            console.log(error);
+        });
+
+        
+
     }
 
 
 
     render() {
+  
         return (
             //     <div class="container-fluid sp" style={{ marginTop: '-0%', marginBottom: '2%', marginLeft: '2%', width: '96%' }}>
             //     <div class="container-fluid sp">
@@ -133,54 +212,51 @@ class searchResult extends Component {
             // </div>
             // </div>
 
-            <div class="container">
+            <div class="container-fluid sp" style={{ marginTop: '2%', marginBottom: '2%', marginLeft: '3%', width: '96%', height: 'auto' }}>
+            <div style={{ marginTop: '3%', marginLeft: '1%' }}>
+               
                 <h5> Customer Details</h5>
                 
                 <fieldset class="border p-4">
-                    <legend class="w-auto">Bank Details</legend>
-                    <div class="row">
-                        <div class="col-md-3"><strong>Name:</strong> Bipil Raut</div>
-                        <div class="col-md-5"><strong>Account Number:</strong> 52726273890</div>
-                        <div class="col-md-4"><strong>CIF: </strong> 34</div>
+                    <legend class="w-auto">User Details</legend>
+                    <div class="row" >
+                        <div class="col-md-2"><strong>CIF : </strong> {localStorage.getItem("cif")}</div>
+                        <div class="col-md-2"><strong>Name : </strong> {localStorage.getItem("name")}</div>
+                        <div class="col-md-2"><strong>Region :</strong> {localStorage.getItem("region")} </div>
+                        <div class="col-md-2"><strong>Country : </strong> {localStorage.getItem("country")}</div>
+                        <div class="col-md-2"><strong>State : </strong> {localStorage.getItem("state")}</div>
+                        <div class="col-md-2"><strong>City : </strong> {localStorage.getItem("city")}</div>
+                        
                     </div>
-                    <div class="row">
-                        <div class="col-md-3"><strong>Name:</strong> Bipil Raut</div>
-                        <div class="col-md-5"><strong>Account Number:</strong> 52726273890</div>
-                        <div class="col-md-4"><strong>CIF: </strong> 34</div>
+                    <div class="row" style={{ marginTop: '1%'}}>
+                        <div class="col-md-2"><strong>Email : </strong> {localStorage.getItem("email")}</div>
+                        <div class="col-md-2"><strong>Gender :</strong> {localStorage.getItem("gender")} </div>
+                        
                     </div>
                 </fieldset>
                 <br></br>
-                <fieldset class="border p-4">
-                    <legend class="w-auto">Personal Details</legend>
-                    <div class="row">
-                        <div class="col-md-3"><strong>Name:</strong> Bipil Raut</div>
-                        <div class="col-md-5"><strong>Account Number:</strong> 52726273890</div>
-                        <div class="col-md-4"><strong>CIF: </strong> 34</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3"><strong>Name:</strong> Bipil Raut</div>
-                        <div class="col-md-5"><strong>Account Number:</strong> 52726273890</div>
-                        <div class="col-md-4"><strong>CIF: </strong> 34</div>
-                    </div>
-                </fieldset>
+ 
                 <div class="row">
                     <div class="col-md-8">
                         <div class="row">
-                            <div class="col-md-6">
+                            {/* <div class="col-md-6">
                                 <div class="row" >
                                     <Line data={this.boundryArea.boundryAreadata} />
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                            <Bar
-                                    data={this.barChart.data}
-                                    width={10}
-                                    height={150}
-                                    options={{
-                                        maintainAspectRatio: false
-                                    }}
-                                />
-                            </div>
+                            </div> */}
+                                <div class="col-md-12">
+                                    <fieldset class="border p-4">
+                                        <Bar
+                                                data={this.barChart.data}
+                                                width={10}
+                                                height={200}
+                                                options={{
+                                                    maintainAspectRatio: false
+                                                }}
+                                            />
+
+                                    </fieldset>
+                                </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
@@ -268,6 +344,8 @@ class searchResult extends Component {
                 </div>
 
             </div>
+            </div>
+          
         );
 
     }
