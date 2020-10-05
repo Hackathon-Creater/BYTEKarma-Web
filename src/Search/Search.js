@@ -50,13 +50,11 @@ class Search extends Component {
   }
 
   SearchApi = () => {
-    this.setState({
-      hide:false
-    })
+    
    // window.location.pathname = "/searchResult";
     axios({
       method: 'post',
-      url: "http://3.18.106.65:5000/search",
+      url: "http://18.221.237.209:5000/search",
       headers: { 'Content-Type': 'application/json' },
       data: {
         "cif": this.state.cif,
@@ -65,7 +63,10 @@ class Search extends Component {
         "city": "",
         "region": "",
         "name": "",
-        "gender": ""  
+        "gender": ""  ,
+        "transactionType" : "",
+        "accountNumber":"",
+        "accountType":""
       }
     }).then(function (response) {
       const searchData = JSON.stringify(response);
@@ -73,12 +74,14 @@ class Search extends Component {
       const data = JSON.parse(searchData).data;
       console.log(data.SearchResponse);
       // route.push("/searchResul");
-      localStorage.setItem('searchResult', JSON.stringify(data.SearchResponse));
-      window.location.pathname="/searchResult";
-
+      localStorage.setItem('searchResult', JSON.stringify(data.response));
+      // window.location.pathname="/searchResult";
+      
     });
-
-    // axios.post("http://3.18.106.65:5000/search/"+this.state); 
+    this.setState({
+      hide:false
+    })
+    // axios.post("http://18.221.237.209:5000/search/"+this.state); 
   };
 
   render() {
