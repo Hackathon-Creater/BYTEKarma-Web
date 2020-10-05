@@ -81,8 +81,8 @@ export default function StickyHeadTable() {
   rows=[];
 }
 
-const clickRow = (row) => {
-  console.log(row);
+const clickRow = (e) => {
+  console.log(e);
   axios({
       method: 'post',
       url: "http://18.221.237.209:5000/getCountryCategory",
@@ -122,7 +122,7 @@ const clickRow = (row) => {
           <TableBody>
             {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
               return (
-                <TableRow onClick={(row) => clickRow(row)} hover role="checkbox" tabIndex={-1} key={row.code}>
+                <TableRow onClick={(e) => clickRow(row['CIF'])} hover role="checkbox" tabIndex={-1} key={row.code}>
                   {columns.map((column) => {
                     const value = row[column.id];
                     return (
