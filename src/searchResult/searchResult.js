@@ -93,21 +93,21 @@ class searchResult extends Component {
 
     componentWillMount() {
         let objarry = [];
-        if (JSON.parse(localStorage.getItem("searchResult")) !== "no results found") {
-            Object.entries(this.state.myObjStr).map(([index, value]) => {
+        // if (JSON.parse(localStorage.getItem("searchResult")) !== "no results found") {
+        //     Object.entries(this.state.myObjStr).map(([index, value]) => {
 
-                var obj = JSON.parse(value);
-                objarry.push(obj);
-                console.log(obj.cif);
-            });
-            this.setState({
-                obj: objarry
-            });
-        } else {
-            this.setState({
-                obj: []
-            });
-        }
+        //         var obj = JSON.parse(value);
+        //         objarry.push(obj);
+        //         console.log(obj.cif);
+        //     });
+        //     this.setState({
+        //         obj: objarry
+        //     });
+        // } else {
+        //     this.setState({
+        //         obj: []
+        //     });
+        // }
     }
 
 

@@ -96,11 +96,16 @@ const clickRow = (e) => {
         "cif" : e
       }
     }).then(function (response) {
-      // const searchData = JSON.stringify(response);
-      //  console.log(response);
-      //  const data = JSON.parse(searchData).data;
-      //  localStorage.setItem('searchResult', JSON.stringify(data.response));
-      //  window.location.pathname="/searchResult";
+      const data = response.data.response;
+       localStorage.setItem('bankDetails', JSON.stringify(data.bankDetails));
+       localStorage.setItem('carePackageDetails', JSON.stringify(data.carePackageDetails));
+       localStorage.setItem('negativeSpendingTrend', JSON.stringify(data.negativeSpendingTrend));
+       localStorage.setItem('podTrend', JSON.stringify(data.podTrend));
+       localStorage.setItem('predictedGamblingData', JSON.stringify(data.predictedGamblingData));
+       localStorage.setItem('spendingDetails', JSON.stringify(data.spendingDetails));
+       localStorage.setItem('carePackageDetails', JSON.stringify(data.carePackageDetails));
+       localStorage.setItem('spendingToEarningRatio', JSON.stringify(data.spendingToEarningRatio));
+       window.location.pathname="/searchResult";
     })
   .catch((error) => {
       console.log(error);
