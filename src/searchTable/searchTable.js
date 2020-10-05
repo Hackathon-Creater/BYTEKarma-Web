@@ -53,9 +53,12 @@ const useStyles = makeStyles({
 });
 
 export default function StickyHeadTable() {
+
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+  const tableData=React.useState(JSON.parse(localStorage.getItem("searchResult")));
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -65,8 +68,14 @@ export default function StickyHeadTable() {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+  const emptyArray = () => {
+    //empty your array
+    rows.splice(rows, 1);
+}
   const existArray=[];
-  if (JSON.parse(localStorage.getItem("searchResult")) !== "no results found") {
+
+  if (JSON.parse(localStorage.getItem("searchResult")) != undefined && JSON.parse(localStorage.getItem("searchResult")) !== "no results found") {
+    emptyArray();
     Object.entries(JSON.parse(localStorage.getItem("searchResult"))).map(([index, value]) => {
         
         var obj = value;
@@ -80,9 +89,7 @@ export default function StickyHeadTable() {
        
     });
    
-} else {
-  rows=[];
-}
+} 
 // existArray=[];
 
 const clickRow = (e) => {
@@ -96,7 +103,7 @@ const clickRow = (e) => {
         "cif" : e
       }
     }).then(function (response) {
-      const data = response.data.response;
+       const data = response.data.response;
        localStorage.setItem('bankDetails', JSON.stringify(data.bankDetails));
        localStorage.setItem('carePackageDetails', JSON.stringify(data.carePackageDetails));
        localStorage.setItem('negativeSpendingTrend', JSON.stringify(data.negativeSpendingTrend));

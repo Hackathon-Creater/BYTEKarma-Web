@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Form, Button, FormGroup, FormControl, ControlLabel, Accordion, Card, Col } from "react-bootstrap";
 import axios from 'axios';
 import StickyHeadTable from '../searchTable/searchTable';
-
+import { Ring } from 'react-awesome-spinners';
 
 class Search extends Component {
 
@@ -18,11 +18,12 @@ class Search extends Component {
       region: "",
       name: "",
       gender: "",
-      hide:true
+      hide:true,
+      loadingMask:false
 
     };
 
-
+    // this.SearchApi = this.SearchApi.bind(this)
     // this.cif = React.createRef(); 
   }
 
@@ -50,7 +51,13 @@ class Search extends Component {
   }
 
   SearchApi = () => {
-    
+    this.setState({
+      hide:true
+    });
+    this.setState({
+      loadingMask:true
+    });
+    // localStorage.removeItem('searchResult');
    // window.location.pathname = "/searchResult";
     axios({
       method: 'post',
@@ -68,7 +75,7 @@ class Search extends Component {
         "accountNumber":"",
         "accountType":""
       }
-    }).then(function (response) {
+    }).then(response =>  {
       const searchData = JSON.stringify(response);
 
       const data = JSON.parse(searchData).data;
@@ -76,11 +83,16 @@ class Search extends Component {
       // route.push("/searchResul");
       localStorage.setItem('searchResult', JSON.stringify(data.response));
       // window.location.pathname="/searchResult";
-      
+      this.setState({
+        hide:false
+      });
+
+      this.setState({
+        loadingMask:false
+      });
     });
-    this.setState({
-      hide:false
-    })
+
+  
     // axios.post("http://18.221.237.209:5000/search/"+this.state); 
   };
 
@@ -162,14 +174,19 @@ class Search extends Component {
                           </Form.Group>
 
                         </Form.Row>
-
-                        <Button variant="outline-danger" size="lg" style={{
-    float: 'right',
-    margin: '1%',
-    width: '9%'
+                        <div class="row">
+                        <div class="col-sm-9"></div>
+                        <div class="col-sm-1">{this.state.loadingMask? <Ring size="40"/>:null}</div>  
+                      
+                        <div class="col-sm-2">
+                        <Button disabled={this.state.loadingMask} variant="outline-danger" size="lg" style={{
+   marginTop:'7%',
+    width: '86%'
 }} active onClick={this.SearchApi}> 
                         Search
                 </Button>
+                </div>
+                </div>
                         {/* <Button variant="btn btn-danger" >
                           
           </Button> */}
@@ -229,7 +246,7 @@ class Search extends Component {
             </div>
             <div class="col-md-3" style={{ marginTop: '1%' }}>
           
-              <Button variant="outline-success" size="lg" style={{float:'right'}} active>
+              <Button variant="outline-danger" size="lg" style={{float:'right'}} active>
                 Export CSV  <i class="fa fa-download" aria-hidden="true"></i>
                 </Button>
             </div>
