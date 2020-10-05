@@ -13,7 +13,10 @@ class searchResult extends Component {
         super(props)
         this.state = {
             myObjStr: JSON.parse(localStorage.getItem("searchResult")),
-            obj: [Object]
+            obj: [Object],
+            spendingDetails:JSON.parse(localStorage.getItem("spendingDetails")),
+            rowsCustomerVitals : [],
+            rowsCustomerSpend : []
         }
         this.boundryArea = {
             boundryAreadata: {
@@ -108,7 +111,7 @@ class searchResult extends Component {
     };
 
     componentWillMount() {
-     
+        
        
 
         // if (JSON.parse(localStorage.getItem("searchResult")) !== "no results found") {
@@ -152,8 +155,9 @@ class searchResult extends Component {
 
         console.log(bank_details);
         localStorage.setItem("cif",bank_details.cif);
-
-
+         
+        // spendingDetails
+       
         axios({
             method: 'post',
             url: "http://18.221.237.209:5000/getPredictionDetails",
@@ -279,7 +283,79 @@ class searchResult extends Component {
     backgroundColor: 'black',
     color: 'white',
     textAlign: 'center'
-}}>BALANCE SHEET</h5>
+}}>SPENDING DETAILS</h5>
+ <Card style={{ width: '40rem', boxShadow: "0px 3px 10px 11px rgba(0,0,0,0.099)", border: "0px solid #fff" }}>
+                                
+                                <Card.Body>
+                                <h7><strong>CUSTOMER VITALS</strong></h7>
+<table class="table table-striped table-hover">
+  <thead>
+  
+  </thead>
+  <tbody>
+    <tr>
+      
+      <td>Credit Card Limit</td>
+      <td>2,825.371</td>
+     
+    </tr>
+    <tr>
+    
+      <td>Currebt Assets</td>
+      <td>234.34</td>
+    
+    </tr>
+    <tr>
+      
+      <td>Cash</td>
+      <td>193700.87</td>
+      
+     
+    </tr>
+    <tr>
+      
+      <td>Total Assets</td>
+      <td>2,825.371</td>
+     
+    </tr>
+    <tr>
+    
+      <td>Currebt Assets</td>
+      <td>234.34</td>
+    
+    </tr>
+    <tr>
+      
+      <td>Cash</td>
+      <td>193700.87</td>
+      </tr>
+      <tr>
+      
+      <td>Total Assets</td>
+      <td>2,825.371</td>
+     
+    </tr>
+    <tr>
+    
+      <td>Currebt Assets</td>
+      <td>234.34</td>
+    
+    </tr>
+    <tr>
+      
+      <td>Cash</td>
+      <td>193700.87</td>
+      </tr>
+  </tbody>
+</table>
+   
+                                </Card.Body>
+                           
+                        </Card>
+                        <Card style={{ width: '40rem', boxShadow: "0px 3px 10px 11px rgba(0,0,0,0.099)", border: "0px solid #fff" }}>
+                                
+                                <Card.Body>
+                                <h7><strong>CUSTOMER VITALS</strong></h7>
 <table class="table table-striped table-hover">
   <thead>
   
@@ -340,6 +416,11 @@ class searchResult extends Component {
       </tr>
   </tbody>
 </table>
+   
+                                </Card.Body>
+                           
+                        </Card>
+ 
                     </div>
                 </div>
 

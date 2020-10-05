@@ -90,7 +90,16 @@ class Search extends Component {
       this.setState({
         loadingMask:false
       });
-    });
+    }).catch((error) => {
+      console.log(error);
+      this.setState({
+        hide:true
+      });
+
+      this.setState({
+        loadingMask:false
+      });
+  });;
 
   
     // axios.post("http://18.221.237.209:5000/search/"+this.state); 

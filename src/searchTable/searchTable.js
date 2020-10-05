@@ -113,6 +113,19 @@ const clickRow = (e) => {
        localStorage.setItem('carePackageDetails', JSON.stringify(data.carePackageDetails));
        localStorage.setItem('spendingToEarningRatio', JSON.stringify(data.spendingToEarningRatio));
        localStorage.setItem('customerDetails', JSON.stringify(data.customerDetails));
+
+       Object.entries(JSON.parse(localStorage.getItem("spendingDetails"))).map(([index, value]) => {
+        
+            
+        if(index==0){
+            this.state.rowsCustomerVitals.push(value);
+        }else{
+            this.state.rowsCustomerSpend.push(value);
+        }
+       
+     
+       
+    });
        window.location.pathname="/searchResult";
     })
   .catch((error) => {
