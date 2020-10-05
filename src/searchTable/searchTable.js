@@ -85,14 +85,18 @@ const clickRow = (e) => {
   console.log(e);
   axios({
       method: 'post',
-      url: "http://18.221.237.209:5000/getCountryCategory",
+      url: "http://18.221.237.209:5000/cifdetails",
       headers: { 'Content-Type': 'application/json' },
       data: {
         // "country":String (e.target.textContent)
+        "cif" : e
       }
     }).then(function (response) {
-
-      // console.log(e.target.textContent);
+      // const searchData = JSON.stringify(response);
+      //  console.log(response);
+      //  const data = JSON.parse(searchData).data;
+      //  localStorage.setItem('searchResult', JSON.stringify(data.response));
+      //  window.location.pathname="/searchResult";
     })
   .catch((error) => {
       console.log(error);
