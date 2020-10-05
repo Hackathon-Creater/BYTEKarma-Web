@@ -65,21 +65,25 @@ export default function StickyHeadTable() {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+  const existArray=[];
   if (JSON.parse(localStorage.getItem("searchResult")) !== "no results found") {
     Object.entries(JSON.parse(localStorage.getItem("searchResult"))).map(([index, value]) => {
         
         var obj = value;
-        if(rows.length < 1){
+        if(!existArray.includes(value.CIF)){
+          existArray.push(value.CIF);
         rows.push(obj);
+        console.log(obj.cif);
         }
         
-        console.log(obj.cif);
-        return;
+     
+       
     });
    
 } else {
   rows=[];
 }
+// existArray=[];
 
 const clickRow = (e) => {
   console.log(e);
