@@ -31,7 +31,7 @@ class Header extends Component {
           </div>
           <Nav className="ml-auto ml-3 border-l border-pewter text-lg flex flex-grow w-full pl-3 text-white" style={{color:"black",width: '298%'}}>
               <Nav.Item><Nav.Link href="/home" id="navhome"  className={pathname =='/home' ? 'text-blue' : 'text-white'}>Dashboard</Nav.Link></Nav.Item> 
-              <Nav.Item><Nav.Link href="/search" id="navsearch" className={pathname =='/search' ? 'text-blue' : 'text-white'} >Search</Nav.Link></Nav.Item> 
+              <Nav.Item><Nav.Link href="/search" id="navsearch" className={pathname =='/search'  || pathname =='/searchResult' ? 'text-blue' : 'text-white'} >Search</Nav.Link></Nav.Item> 
               <Nav.Item><Nav.Link href="/dataupload" id="navdataupload" className={pathname =='/dataupload' ? 'text-blue' : 'text-white'}>Data Upload</Nav.Link></Nav.Item> 
               <Nav.Item><Nav.Link href="/policy" id="navprovacypolicy" className={pathname =='/policy' ? 'text-blue' : 'text-white'}>Privacy Policy</Nav.Link></Nav.Item> 
             
