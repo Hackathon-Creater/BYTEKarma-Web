@@ -431,7 +431,7 @@ class searchResult extends Component {
     color: 'white',
     textAlign: 'center'
 }}>SPENDING DETAILS</h5>
- <Card style={{ width: '40rem', boxShadow: "0px 3px 10px 11px rgba(0,0,0,0.099)", border: "0px solid #fff" }}>
+ <Card style={{ width: '45rem', boxShadow: "0px 3px 10px 11px rgba(0,0,0,0.099)", border: "0px solid #fff" }}>
                                 
                                 <Card.Body>
                                     <br></br>
@@ -479,7 +479,7 @@ class searchResult extends Component {
                                 </Card.Body>
          <br></br>                  
                         </Card>
-                        <Card style={{ width: '40rem', boxShadow: "0px 3px 10px 11px rgba(0,0,0,0.099)", border: "0px solid #fff" }}>
+                        <Card style={{ width: '45rem', boxShadow: "0px 3px 10px 11px rgba(0,0,0,0.099)", border: "0px solid #fff" }}>
                                 
                                 <Card.Body>
                                 <br></br>
