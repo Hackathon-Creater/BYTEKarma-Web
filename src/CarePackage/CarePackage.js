@@ -138,7 +138,7 @@ export const Carepackage = () => (
         <Card style={{ width: '29rem', boxShadow: "0px 3px 10px 11px rgba(0,0,0,0.099)", border: "0px solid #fff",margin:'2%' }}>
                             <div class="bg-rag-neutral text-white">
                                 <Card.Body>
-                                    <Card.Title>Care Package 2</Card.Title>
+                                    <Card.Title>Care Package 8</Card.Title>
                                     
                                     <Card.Text style={{ fontSize: "-webkit-xxx-large", textAlign: "center", }}>
                                         
@@ -155,7 +155,7 @@ export const Carepackage = () => (
         <Card style={{ width: '29rem', boxShadow: "0px 3px 10px 11px rgba(0,0,0,0.099)", border: "0px solid #fff",margin:'2%' }}>
                             <div class="bg-rag-neutral text-white">
                                 <Card.Body>
-                                    <Card.Title>Care Package 1</Card.Title>
+                                    <Card.Title>Care Package 9</Card.Title>
                                     
                                     <Card.Text style={{ fontSize: "-webkit-xxx-large", textAlign: "center", }}>
                                         
