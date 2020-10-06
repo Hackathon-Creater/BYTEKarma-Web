@@ -341,7 +341,7 @@ class Home extends React.Component {
             labels: ['Gambling', 'Loan return', 'Credit Card Bill'],
             datasets: [
                 {
-                    label: 'Sepending Customers',
+                    label: 'Spending Customers',
                     backgroundColor: 'turquoise',
                     borderColor: 'darkcyan',
                     borderWidth: 1,
@@ -358,7 +358,7 @@ class Home extends React.Component {
             labels: [localStorage.getItem("ctry_label_1"), localStorage.getItem("ctry_label_2"), localStorage.getItem("ctry_label_3")],
             datasets: [
                 {
-                    label: 'Sepending Customers',
+                    label: 'Spending Customers',
                     backgroundColor: 'lightGreen',
                     borderColor: 'limegreen',
                     borderWidth: 1,
@@ -375,7 +375,7 @@ class Home extends React.Component {
             labels: [localStorage.getItem("reg_label_1"), localStorage.getItem("reg_label_2"), localStorage.getItem("reg_label_3")],
             datasets: [
                 {
-                    label: 'Sepending Customers',
+                    label: 'Spending Customers',
                     backgroundColor: 'orange',
                     borderColor: 'orangered',
                     borderWidth: 1,
@@ -419,10 +419,10 @@ class Home extends React.Component {
 
     barChart = {
         data: {
-            labels: ['Projected Defaulted', 'Non-Projected Defaulted'],
+            labels: ['Projected Default', 'Non-Projected Default'],
             datasets: [
                 {
-                    label: ['Users'],
+                    label: ['Customers'],
                     backgroundColor: '#c3edea',
                     borderColor: 'darkgreen',
                     borderWidth: 1,
@@ -462,8 +462,8 @@ class Home extends React.Component {
                             <Card style={{ width: '21rem', boxShadow: "0px 3px 10px 11px rgba(0,0,0,0.099)", border: "0px solid #fff" }}>
                                 <div class="bg-jade text-white">
                                     <Card.Body>
-                                        <Card.Title>Total Customers</Card.Title>
-                                        <Card.Subtitle className="mb-2 text-muted text-white"> <strong class="text-white">Onboarded</strong> </Card.Subtitle>
+                                        <Card.Title>Total Customers Onboarded</Card.Title>
+                                        {/* <Card.Subtitle className="mb-2 text-muted text-white"> <strong class="text-white"></strong> </Card.Subtitle> */}
                                         <Card.Text style={{ fontSize: "-webkit-xxx-large", textAlign: "center", }}>
                                             <div className="row">
                                                 <div class="col-md-6">
@@ -486,7 +486,7 @@ class Home extends React.Component {
                                 <div class="bg-rag-green text-white">
                                     <Card.Body>
                                         <Card.Title>Negative Spending Customers</Card.Title>
-                                        <Card.Subtitle className="mb-2 text-muted text-white"> <strong class="text-white">In Count</strong> </Card.Subtitle>
+                                        {/* <Card.Subtitle className="mb-2 text-muted text-white"> <strong class="text-white">In Count</strong> </Card.Subtitle> */}
                                         <Card.Text style={{ fontSize: "-webkit-xxx-large", textAlign: "center", }}>
                                             <div className="row">
                                                 <div class="col-md-6">
@@ -534,7 +534,7 @@ class Home extends React.Component {
                                 <div class="bg-rag-green text-white">
                                     <Card.Body>
                                         <Card.Title>Customers Advised</Card.Title>
-                                        <Card.Subtitle className="mb-2 text-muted text-white"> <strong class="text-white">In Count</strong> </Card.Subtitle>
+                                        {/* <Card.Subtitle className="mb-2 text-muted text-white"> <strong class="text-white">In Count</strong> </Card.Subtitle> */}
                                         <Card.Text style={{ fontSize: "-webkit-xxx-large", textAlign: "center", }}>
                                             <div className="row">
                                                 <div class="col-md-6">
@@ -559,7 +559,7 @@ class Home extends React.Component {
                                 <div class="bg-rag-green text-white">
                                     <Card.Body>
                                         <Card.Title>Customers at Observation</Card.Title>
-                                        <Card.Subtitle className="mb-2 text-muted text-white"> <strong class="text-white">In Count</strong> </Card.Subtitle>
+                                        {/* <Card.Subtitle className="mb-2 text-muted text-white"> <strong class="text-white">In Count</strong> </Card.Subtitle> */}
                                         <Card.Text style={{ fontSize: "-webkit-xxx-large", textAlign: "center", }}>
                                             <div className="row">
                                                 <div class="col-md-7">
@@ -584,7 +584,7 @@ class Home extends React.Component {
                                 <div class="bg-rag-green text-white">
                                     <Card.Body>
                                         <Card.Title>Customers Failed To Improve</Card.Title>
-                                        <Card.Subtitle className="mb-2 text-muted text-white"> <strong class="text-white">In Count</strong> </Card.Subtitle>
+                                        {/* <Card.Subtitle className="mb-2 text-muted text-white"> <strong class="text-white">In Count</strong> </Card.Subtitle> */}
                                         <Card.Text style={{ fontSize: "-webkit-xxx-large", textAlign: "center", }}>
                                             <div className="row">
                                                 <div class="col-md-7">
@@ -609,7 +609,7 @@ class Home extends React.Component {
                     <div class="row" style={{ marginTop: '2%' }}>
                         <div class="col-sm-6">
                             <h4>
-                                User Spending Pattern of Last Year
+                            Customer Spending Pattern
                         </h4>
                             <Line data={this.boundryArea.boundryAreadata} />
                         </div>
@@ -628,7 +628,7 @@ class Home extends React.Component {
                     <br></br>
                     <div class="row" style={{ marginTop: '2%', width: '95%' }}>
                         <div class="col-sm-4" >
-                            <h4>Projected Defaulted vs. Non-Projected Defaulted Users
+                            <h4>Projected Default vs Non Projected Default Customers
 
 
 </h4>
@@ -666,7 +666,7 @@ class Home extends React.Component {
                     <br></br>
                     <div class="row" style={{ marginTop: '2%' }}>
                         <div class="col-sm-4" style={{ marginLeft: '-1%' }}>
-                            <h4>Top 3 Spending categories of Customers by Globally
+                            <h4>Top 3 Spending Categories of Customers Globally
 </h4>
 <div style={{ marginTop: '5%' }}>
 
@@ -676,7 +676,7 @@ class Home extends React.Component {
                         </div>
 
                         <div class="col-sm-4">
-                            <h4>Top 3 Spending categories of Customers by Country
+                            <h4>Top 3 Spending Categories of Customers by Country
 </h4>
                             <div>
                                 <DropdownButton id="dropdown-basic-button" title="Select Country" size="lg">
@@ -689,7 +689,7 @@ class Home extends React.Component {
                             <HorizontalBar data={this.horizontalBar2.data} />
                         </div>
                         <div class="col-sm-4">
-                            <h4>Top 3 Spending categories of Customers by Region
+                            <h4>Top 3 Spending Categories of Customers by Region
 
                             <div>
                                 <DropdownButton id="dropdown-basic-button" title="Select Region" style={{marginTop:'1%'}} size="lg">
