@@ -9,6 +9,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import axios from 'axios';
+import { Ring } from 'react-awesome-spinners';
 
 const columns = [
   { id: 'CIF', label: 'CIF', minWidth: 170  },
@@ -53,7 +54,7 @@ const useStyles = makeStyles({
 });
 
 export default function StickyHeadTable() {
-
+  
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -93,6 +94,7 @@ export default function StickyHeadTable() {
 // existArray=[];
 
 const clickRow = (e) => {
+ 
   console.log(e);
   axios({
       method: 'post',
@@ -113,23 +115,24 @@ const clickRow = (e) => {
        localStorage.setItem('carePackageDetails', JSON.stringify(data.carePackageDetails));
        localStorage.setItem('spendingToEarningRatio', JSON.stringify(data.spendingToEarningRatio));
        localStorage.setItem('customerDetails', JSON.stringify(data.customerDetails));
-
-       Object.entries(JSON.parse(localStorage.getItem("spendingDetails"))).map(([index, value]) => {
+     
+    //    Object.entries(JSON.parse(localStorage.getItem("spendingDetails"))).map(([index, value]) => {
         
             
-        if(index==0){
-            this.state.rowsCustomerVitals.push(value);
-        }else{
-            this.state.rowsCustomerSpend.push(value);
-        }
+    //     if(index==0){
+    //         this.state.rowsCustomerVitals.push(value);
+    //     }else{
+    //         this.state.rowsCustomerSpend.push(value);
+    //     }
        
      
        
-    });
+    // });
        window.location.pathname="/searchResult";
     })
   .catch((error) => {
       console.log(error);
+     
   });
 
 };
@@ -137,7 +140,19 @@ const clickRow = (e) => {
   //   rows.push({CIF:1,NAME:'Bipil',ACCOUNT_NUMBER:123,STATE:'m',COUNTRY:'INDIA'});
   // }
   return (
+    
     <Paper className={classes.root} >
+      {/* <div class="row">
+                        <div class="col-sm-9"></div>
+                        <div class="col-sm-1" style={{
+    marginTop: '-4%',
+    marginLeft: '6%'}
+}>{loadingMask? <Ring size="40"/>:null}</div>  
+                      
+                        <div class="col-sm-2">
+                    
+                </div>
+                </div> */}
       <TableContainer className={classes.container} >
         <Table stickyHeader aria-label="sticky table table-striped table-hover">
           <TableHead >
@@ -156,7 +171,7 @@ const clickRow = (e) => {
           <TableBody>
             {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
               return (
-                <TableRow onClick={(e) => clickRow(row['CIF'])} hover role="checkbox" tabIndex={-1} key={row.code}>
+                <TableRow onClick={(e) => clickRow(row['CIF'])} style={{cursor: 'pointer'}} hover role="checkbox" tabIndex={-1} key={row.code}>
                   {columns.map((column) => {
                     const value = row[column.id];
                     return (
