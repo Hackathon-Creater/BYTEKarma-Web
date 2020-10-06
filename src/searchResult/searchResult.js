@@ -434,7 +434,12 @@ class searchResult extends Component {
  <Card style={{ width: '40rem', boxShadow: "0px 3px 10px 11px rgba(0,0,0,0.099)", border: "0px solid #fff" }}>
                                 
                                 <Card.Body>
-                                <h7><strong>CUSTOMER VITALS</strong></h7>
+                                    <br></br>
+                                <h7><strong style={{
+    /* text-align: center; */
+    paddingLeft: '38%'
+}}>CUSTOMER VITALS</strong></h7>
+<br></br>
 <table class="table table-striped table-hover">
   <thead>
   
@@ -477,7 +482,12 @@ class searchResult extends Component {
                         <Card style={{ width: '40rem', boxShadow: "0px 3px 10px 11px rgba(0,0,0,0.099)", border: "0px solid #fff" }}>
                                 
                                 <Card.Body>
-                                <h7><strong>CUSTOMER SPENDS</strong></h7>
+                                <br></br>
+                                <h7><strong style={{
+    /* text-align: center; */
+    paddingLeft: '38%'
+}}>CUSTOMER SPENDS</strong></h7>
+<br></br>
 <table class="table table-striped table-hover">
   <thead>
   
