@@ -27,7 +27,7 @@ class searchResult extends Component {
                 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
                 datasets: [
                     {
-                        label: 'NEGATIVE SPENDING TREND',
+                        label: 'Probability of Default Trend',
                         fill: false,
                         lineTension: 0.1,
                         backgroundColor: 'skyblue',
@@ -407,11 +407,15 @@ class searchResult extends Component {
                         </div>
                         <div class="row">
                             <div class="col-md-6">
+                                <br></br>
+                            <h5>Probability of Default Trend</h5>
                             <div class="row" >
                                     <Line data={this.boundryArea.boundryAreadata} />
                                 </div>  
                             </div>
                             <div class="col-md-6">
+                            <br></br>
+                            <h5>Spending to Earnings Ratio</h5>
                             <div class="row" >
                                 
                                     <Line data={this.spendingEarning.data} />

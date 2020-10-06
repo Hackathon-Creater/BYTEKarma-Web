@@ -419,7 +419,7 @@ class Home extends React.Component {
 
     barChart = {
         data: {
-            labels: ['Defaulted', 'Non-Defaulted'],
+            labels: ['Projected Defaulted', 'Non-Projected Defaulted'],
             datasets: [
                 {
                     label: ['Users'],
@@ -428,7 +428,7 @@ class Home extends React.Component {
                     borderWidth: 1,
                     hoverBackgroundColor: 'lightseagreen',
                     hoverBorderColor: 'rgba(255,99,132,1)',
-                    data: [localStorage.getItem("risky_cust"), localStorage.getItem("total_cust") - localStorage.getItem("risky_cust")]
+                    data: [localStorage.getItem("risky_cust"), localStorage.getItem("total_cust") - localStorage.getItem("risky_cust"),""]
                 }
             ]
         }
