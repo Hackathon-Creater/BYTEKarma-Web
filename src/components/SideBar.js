@@ -4,7 +4,7 @@ import {  Link } from "react-router-dom";
 
 const StyledSideNav = styled.div`
   position: fixed;     /* Fixed Sidebar (stay in place on scroll and position relative to viewport) */
-  height: 90%;
+  height: 88%;
   width: 40px;     /* Set the width of the sidebar */
   z-index: 1;      /* Stay on top of everything */
   top: 3.7em;      /* Stay at the top */
