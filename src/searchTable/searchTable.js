@@ -11,6 +11,7 @@ import TableRow from '@material-ui/core/TableRow';
 import axios from 'axios';
 import { Ring } from 'react-awesome-spinners';
 
+
 const columns = [
   { id: 'CIF', label: 'CIF', minWidth: 170  },
   { id: 'NAME', label: 'Name', minWidth: 100 },
@@ -93,8 +94,11 @@ export default function StickyHeadTable() {
 } 
 // existArray=[];
 
+const isloadingMask = (value) => {
+  return value;
+}
 const clickRow = (e) => {
- 
+  isloadingMask(true);
   console.log(e);
   axios({
       method: 'post',
@@ -105,6 +109,7 @@ const clickRow = (e) => {
         "cif" : e
       }
     }).then(function (response) {
+      isloadingMask(false);
        const data = response.data.response;
        localStorage.setItem('bankDetails', JSON.stringify(data.bankDetails));
        localStorage.setItem('carePackageDetails', JSON.stringify(data.carePackageDetails));
@@ -115,7 +120,7 @@ const clickRow = (e) => {
        localStorage.setItem('carePackageDetails', JSON.stringify(data.carePackageDetails));
        localStorage.setItem('spendingToEarningRatio', JSON.stringify(data.spendingToEarningRatio));
        localStorage.setItem('customerDetails', JSON.stringify(data.customerDetails));
-     
+      
     //    Object.entries(JSON.parse(localStorage.getItem("spendingDetails"))).map(([index, value]) => {
         
             
@@ -140,7 +145,8 @@ const clickRow = (e) => {
   //   rows.push({CIF:1,NAME:'Bipil',ACCOUNT_NUMBER:123,STATE:'m',COUNTRY:'INDIA'});
   // }
   return (
-    
+    <div>
+    <div class="col-sm-1" style={{float: 'right'}}>{isloadingMask()? <Ring size="40" />:null}</div>  
     <Paper className={classes.root} >
       {/* <div class="row">
                         <div class="col-sm-9"></div>
@@ -153,6 +159,7 @@ const clickRow = (e) => {
                     
                 </div>
                 </div> */}
+                
       <TableContainer className={classes.container} >
         <Table stickyHeader aria-label="sticky table table-striped table-hover">
           <TableHead >
@@ -196,5 +203,6 @@ const clickRow = (e) => {
         onChangeRowsPerPage={handleChangeRowsPerPage}
       />
     </Paper>
+    </div>
   );
 }
