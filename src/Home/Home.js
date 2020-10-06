@@ -309,7 +309,7 @@ class Home extends React.Component {
                 'Gambling',
                 'Loan Return',
                 'Movie',
-                'Shoping'
+                'Shopping'
             ],
             datasets: [{
                 data: [localStorage.getItem("amazonPerc"), localStorage.getItem("ccPerc"), localStorage.getItem("foodPerc"), localStorage.getItem("gambPerc"), localStorage.getItem("loanReturnPerc"), localStorage.getItem("moviePerc"), localStorage.getItem("shopPerc")],
@@ -679,7 +679,7 @@ class Home extends React.Component {
                             <h4>Top 3 Spending Categories of Customers by Country
 </h4>
                             <div>
-                                <DropdownButton id="dropdown-basic-button" title="Select Country" size="lg">
+                                <DropdownButton id="dropdown-basic-button" title="Select Country" style={{marginTop:'1%'}} size="lg">
                                     <Dropdown.Item onClick={(e) => this.handleHomeCountryChange(e)}>England</Dropdown.Item>
                                     <Dropdown.Item onClick={(e) => this.handleHomeCountryChange(e)}>Australia</Dropdown.Item>
                                     <Dropdown.Item onClick={(e) => this.handleHomeCountryChange(e)}>United States of America</Dropdown.Item>
