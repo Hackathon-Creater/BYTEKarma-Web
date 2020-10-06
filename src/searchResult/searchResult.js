@@ -19,7 +19,8 @@ class searchResult extends Component {
             spendingDetails:JSON.parse(localStorage.getItem("spendingDetails")),
             rowsCustomerVitals : [],
             rowsCustomerSpend : [],
-            isOpen:false
+            isOpen:false,
+            sendMail:false
         }
         this.boundryArea = {
             boundryAreadata: {
@@ -235,12 +236,37 @@ class searchResult extends Component {
       
         let carePackageDetailsData=JSON.parse(localStorage.getItem("carePackageDetails"));;
         const handleClose = () => this.setState({
-            isOpen:false
+            isOpen:false,
+            sendMail:false
         });
         const handleShow = () => this.setState({
             isOpen:true
         });
         
+        const sendMailToCust =()=>{
+              this.setState({
+                sendMail:false
+              });
+            axios({
+                method: 'post',
+                url: "http://18.221.237.209:5000/emailalert",
+                headers: { 'Content-Type': 'application/json' },
+                data: {
+                  "cif":localStorage.getItem("cif")
+                }
+              }).then(response =>  {
+                this.setState({
+                    sendMail:true
+                  });
+                //   console.log(response.data[0]);
+                //   this.setState({message: res.data.message})
+                  setTimeout(() => this.setState({sendMail:false}), 3000);
+              })
+            .catch((error) => {
+                console.log(error);
+            });
+    
+        }
         return (
             //     <div class="container-fluid sp" style={{ marginTop: '-0%', marginBottom: '2%', marginLeft: '2%', width: '96%' }}>
             //     <div class="container-fluid sp">
@@ -263,6 +289,32 @@ class searchResult extends Component {
 
             <div class="container-fluid sp" style={{ marginTop: '2%', marginBottom: '2%', marginLeft: '3%', width: '96%', height: 'auto' }}>
           
+          
+         
+          <Modal show={this.state.sendMail} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Mail Notification</Modal.Title>
+          <br></br>
+         
+        </Modal.Header>
+        <Modal.Body>
+       
+        <strong>Mail sent successfully...</strong>
+        
+        
+            
+            </Modal.Body>
+        <Modal.Footer>
+          <Button variant="danger" onClick={handleClose}>
+            Close
+          </Button>
+          
+        </Modal.Footer>
+      </Modal>
+
+
+
+    
       <Modal show={this.state.isOpen} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Recommended Package</Modal.Title>
@@ -304,7 +356,7 @@ class searchResult extends Component {
                 </div>
 
                 <div class="col-md-2">
-                <Button variant="danger" class="btnPackage"style={{width:'70%'}} onClick={handleShow}>
+                <Button variant="danger" class="btnPackage"style={{width:'70%'}} onClick={sendMailToCust}>
                 <strong>Send Mail to Customer</strong>
       </Button>
                 
@@ -316,7 +368,7 @@ class searchResult extends Component {
                     <legend class="w-auto">User Details</legend>
                     <div class="row" >
                         <div class="col-md-2"><strong>CIF : </strong> {localStorage.getItem("cif")}</div>
-                        <div class="col-md-2"><strong>Name : </strong> {localStorage.getItem("name")}</div>
+                        <div class="col-md-2"><strong>Name : </strong> {localStorage.getItem("Custname")}</div>
                         <div class="col-md-2"><strong>Region :</strong> {localStorage.getItem("region")} </div>
                         <div class="col-md-2"><strong>Country : </strong> {localStorage.getItem("country")}</div>
                         <div class="col-md-2"><strong>State : </strong> {localStorage.getItem("state")}</div>
@@ -339,6 +391,8 @@ class searchResult extends Component {
                                     <Line data={this.boundryArea.boundryAreadata} />
                                 </div>
                             </div> */}
+                            <h5>Predictive Gambling</h5>
+                            <br></br>
                                 <div class="col-md-12">
                                     <fieldset class="border p-4">
                                     <Line
