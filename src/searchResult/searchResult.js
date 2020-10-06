@@ -155,9 +155,9 @@ class searchResult extends Component {
 
         console.log(bank_details);
         localStorage.setItem("cif",bank_details.cif);
-         
+    
         // spendingDetails
-       
+    
         axios({
             method: 'post',
             url: "http://18.221.237.209:5000/getPredictionDetails",
@@ -195,7 +195,10 @@ class searchResult extends Component {
 
 
     render() {
-  
+        console.log("------------Details-----------");
+        let spendingDetails=JSON.parse(localStorage.getItem("spendingDetails"));
+       
+        
         return (
             //     <div class="container-fluid sp" style={{ marginTop: '-0%', marginBottom: '2%', marginLeft: '2%', width: '96%' }}>
             //     <div class="container-fluid sp">
@@ -278,7 +281,7 @@ class searchResult extends Component {
 
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4" style={{marginBottom:'1%'}}>
                     <h5 style={{
     backgroundColor: 'black',
     color: 'white',
@@ -293,69 +296,44 @@ class searchResult extends Component {
   
   </thead>
   <tbody>
+  <tr>
+      
+      <td>Total Customer Value</td>
+      <td>{spendingDetails.customerVitals.totalCustomerValue}</td>
+     
+    </tr>
+    <tr>
+      
+      <td>Total Customer Debt</td>
+      <td>{spendingDetails.customerVitals.totalCustomerDebt}</td>
+      
+     
+    </tr>
+   
+    <tr>
+    
+      <td>Current Loan Value</td>
+      <td>{spendingDetails.customerVitals.currentLoanValue}</td>
+    
+    </tr>
     <tr>
       
       <td>Credit Card Limit</td>
-      <td>2,825.371</td>
+<td>{spendingDetails.customerVitals.creditCardLimit}</td>
      
-    </tr>
-    <tr>
+    </tr> 
+   
     
-      <td>Currebt Assets</td>
-      <td>234.34</td>
-    
-    </tr>
-    <tr>
-      
-      <td>Cash</td>
-      <td>193700.87</td>
-      
-     
-    </tr>
-    <tr>
-      
-      <td>Total Assets</td>
-      <td>2,825.371</td>
-     
-    </tr>
-    <tr>
-    
-      <td>Currebt Assets</td>
-      <td>234.34</td>
-    
-    </tr>
-    <tr>
-      
-      <td>Cash</td>
-      <td>193700.87</td>
-      </tr>
-      <tr>
-      
-      <td>Total Assets</td>
-      <td>2,825.371</td>
-     
-    </tr>
-    <tr>
-    
-      <td>Currebt Assets</td>
-      <td>234.34</td>
-    
-    </tr>
-    <tr>
-      
-      <td>Cash</td>
-      <td>193700.87</td>
-      </tr>
   </tbody>
 </table>
    
                                 </Card.Body>
-                           
+         <br></br>                  
                         </Card>
                         <Card style={{ width: '40rem', boxShadow: "0px 3px 10px 11px rgba(0,0,0,0.099)", border: "0px solid #fff" }}>
                                 
                                 <Card.Body>
-                                <h7><strong>CUSTOMER VITALS</strong></h7>
+                                <h7><strong>CUSTOMER SPENDS</strong></h7>
 <table class="table table-striped table-hover">
   <thead>
   
@@ -363,60 +341,50 @@ class searchResult extends Component {
   <tbody>
     <tr>
       
-      <td>Total Assets</td>
-      <td>2,825.371</td>
+      <td>Credit Card Bill</td>
+      <td>{spendingDetails.customerSpends.ccBills}</td>
      
     </tr>
     <tr>
     
-      <td>Currebt Assets</td>
-      <td>234.34</td>
+      <td>Gambling Spends</td>
+      <td>{spendingDetails.customerSpends.gambling}</td>
     
     </tr>
     <tr>
       
-      <td>Cash</td>
-      <td>193700.87</td>
+      <td>Amazon Spends</td>
+      <td>{spendingDetails.customerSpends.amazon}</td>
       
      
     </tr>
     <tr>
       
-      <td>Total Assets</td>
-      <td>2,825.371</td>
+      <td>Food Spends</td>
+      <td>{spendingDetails.customerSpends.food}</td>
      
     </tr>
     <tr>
     
-      <td>Currebt Assets</td>
-      <td>234.34</td>
+      <td>Movie Spends</td>
+      <td>{spendingDetails.customerSpends.movie}</td>
     
     </tr>
     <tr>
       
-      <td>Cash</td>
-      <td>193700.87</td>
+      <td>Shopping Spends</td>
+      <td>{spendingDetails.customerSpends.shopping}</td>
       </tr>
       <tr>
       
-      <td>Total Assets</td>
-      <td>2,825.371</td>
+      <td>Total Spends Vs Gambling</td>
+      <td>{spendingDetails.customerSpends.totalSpendsVsGambling}</td>
      
     </tr>
-    <tr>
-    
-      <td>Currebt Assets</td>
-      <td>234.34</td>
-    
-    </tr>
-    <tr>
-      
-      <td>Cash</td>
-      <td>193700.87</td>
-      </tr>
   </tbody>
 </table>
    
+ <strong>Total Spends:</strong>   {spendingDetails.customerSpends.total}
                                 </Card.Body>
                            
                         </Card>
