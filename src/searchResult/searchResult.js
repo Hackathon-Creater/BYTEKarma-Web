@@ -496,49 +496,49 @@ class searchResult extends Component {
     <tr>
       
       <td>Credit Card Bill</td>
-      <td>{spendingDetails.customerSpends.ccBills}</td>
+      <td>{Math.round(spendingDetails.customerSpends.ccBills)}</td>
      
     </tr>
     <tr>
     
       <td>Gambling Spends</td>
-      <td>{spendingDetails.customerSpends.gambling}</td>
+      <td>{Math.round(spendingDetails.customerSpends.gambling)}</td>
     
     </tr>
     <tr>
       
       <td>Amazon Spends</td>
-      <td>{spendingDetails.customerSpends.amazon}</td>
+      <td>{Math.round(spendingDetails.customerSpends.amazon)}</td>
       
      
     </tr>
     <tr>
       
       <td>Food Spends</td>
-      <td>{spendingDetails.customerSpends.food}</td>
+      <td>{Math.round(spendingDetails.customerSpends.food)}</td>
      
     </tr>
     <tr>
     
       <td>Movie Spends</td>
-      <td>{spendingDetails.customerSpends.movie}</td>
+      <td>{Math.round(spendingDetails.customerSpends.movie)}</td>
     
     </tr>
     <tr>
       
       <td>Shopping Spends</td>
-      <td>{spendingDetails.customerSpends.shopping}</td>
+      <td>{Math.round(spendingDetails.customerSpends.shopping)}</td>
       </tr>
       <tr>
       
       <td>Total Spends Vs Gambling</td>
-      <td>{spendingDetails.customerSpends.totalSpendsVsGambling}</td>
+      <td>{Math.round(spendingDetails.customerSpends.totalSpendsVsGambling)}</td>
      
     </tr>
   </tbody>
 </table>
    
- <strong>Total Spends:</strong>   {spendingDetails.customerSpends.total}
+ <strong>Total Spends:</strong>   {Math.round(spendingDetails.customerSpends.total)}
                                 </Card.Body>
                            
                         </Card>
