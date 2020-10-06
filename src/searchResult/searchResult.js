@@ -258,9 +258,7 @@ class searchResult extends Component {
                 this.setState({
                     sendMail:true
                   });
-                //   console.log(response.data[0]);
-                //   this.setState({message: res.data.message})
-                //   setTimeout(() => this.setState({sendMail:false}), 3000);
+               
               })
             .catch((error) => {
                 console.log(error);
