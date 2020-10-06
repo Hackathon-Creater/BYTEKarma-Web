@@ -437,7 +437,7 @@ class Home extends React.Component {
 
     barChartDaily = {
         data: {
-            labels: ['Credit Card', 'Gambling', 'Food', 'Loan', 'Movie', 'Shoping'],
+            labels: ['Credit Card', 'Gambling', 'Food', 'Loan', 'Movie', 'Shopping'],
             datasets: [
                 {
                     label: 'Average Spending',
