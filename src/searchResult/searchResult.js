@@ -110,9 +110,8 @@ class searchResult extends Component {
 
     };
 
-    componentWillMount() {
-        
-       
+    componentWillMount() {  
+    
 
         // if (JSON.parse(localStorage.getItem("searchResult")) !== "no results found") {
         //     Object.entries(this.state.myObjStr).map(([index, value]) => {
@@ -144,7 +143,7 @@ class searchResult extends Component {
         let bank_details=JSON.parse(localStorage.getItem("bankDetails"));
 
         
-        localStorage.setItem("name",cust_deatils.name);
+        localStorage.setItem("Custname",cust_deatils.name);
         localStorage.setItem("city",cust_deatils.city);
         localStorage.setItem("state",cust_deatils.state);
         localStorage.setItem("country",cust_deatils.country);
@@ -155,9 +154,8 @@ class searchResult extends Component {
 
         console.log(bank_details);
         localStorage.setItem("cif",bank_details.cif);
-    
+         
         // spendingDetails
-    
         axios({
             method: 'post',
             url: "http://18.221.237.209:5000/getPredictionDetails",
@@ -167,30 +165,64 @@ class searchResult extends Component {
             }
           }).then(function (response) {
               console.log("************");
-              console.log(response);
+              console.log(response.data[0]);
+             
            
-            // localStorage.setItem("reg_label_1",response.data[0].SUMMARY_OF_TRANSACTION);
-            // localStorage.setItem("reg_label_2",response.data[1].SUMMARY_OF_TRANSACTION);
-            // localStorage.setItem("reg_label_3",response.data[2].SUMMARY_OF_TRANSACTION);
+            localStorage.setItem("act1",response.data[0].actualGamblingValue);
+            localStorage.setItem("pre1",response.data[0].predictedGamblingValue);
 
-            // localStorage.setItem("reg_label_1_data",response.data[0].AMOUNT_SPENT);
-            // localStorage.setItem("reg_label_2_data",response.data[1].AMOUNT_SPENT);
-            // localStorage.setItem("reg_label_3_data",response.data[2].AMOUNT_SPENT);
+            localStorage.setItem("act2",response.data[1].actualGamblingValue);
+            localStorage.setItem("pre2",response.data[1].predictedGamblingValue);
 
+            localStorage.setItem("act3",response.data[2].actualGamblingValue);
+            localStorage.setItem("pre3",response.data[2].predictedGamblingValue);
 
-            console.log(response.data[0].SUMMARY_OF_TRANSACTION);
-            console.log(response.data[0].AMOUNT_SPENT);
-           
-            
+            localStorage.setItem("act4",response.data[3].actualGamblingValue);
+            localStorage.setItem("pre4",response.data[3].predictedGamblingValue);
+
+            localStorage.setItem("act5",response.data[4].actualGamblingValue);
+            localStorage.setItem("pre5",response.data[4].predictedGamblingValue);
+
+            localStorage.setItem("act6",response.data[5].actualGamblingValue);
+            localStorage.setItem("pre6",response.data[5].predictedGamblingValue);
+
+            localStorage.setItem("act7",response.data[6].actualGamblingValue);
+            localStorage.setItem("pre7",response.data[6].predictedGamblingValue);
+
+            localStorage.setItem("act8",response.data[7].actualGamblingValue);
+            localStorage.setItem("pre8",response.data[7].predictedGamblingValue);
+
+            // window.location.reload(false);
+
             
           })
         .catch((error) => {
             console.log(error);
         });
 
+        this.linechart = {
         
-
-    }
+            data: {
+                labels: ['1', '2','3','4','5','6','7','8'],
+                datasets: [
+                    {
+                        label: "Actual Gambling Value",
+                        data: [localStorage.getItem("act1"), localStorage.getItem("act2"), localStorage.getItem("act3"), localStorage.getItem("act4"), localStorage.getItem("act5"), localStorage.getItem("act6"),localStorage.getItem("act7"),localStorage.getItem("act8")],
+                        fill: true,
+                        backgroundColor: "rgba(75,192,192,0.2)",
+                        borderColor: "rgba(75,192,192,1)"
+                      },
+            
+                      {
+                        label: "Predicted Gambling Value",
+                        data: [localStorage.getItem("pre1"), localStorage.getItem("pre2"), localStorage.getItem("pre3"), localStorage.getItem("pre4"), localStorage.getItem("pre5"), localStorage.getItem("pre6"),localStorage.getItem("pre7"),localStorage.getItem("pre8")],
+                        fill: false,
+                        borderColor: "#742774"
+                      }
+                ]
+            }
+        }
+}
 
 
 
@@ -253,8 +285,8 @@ class searchResult extends Component {
                             </div> */}
                                 <div class="col-md-12">
                                     <fieldset class="border p-4">
-                                        <Bar
-                                                data={this.barChart.data}
+                                    <Line
+                                                data={this.linechart.data}
                                                 width={10}
                                                 height={200}
                                                 options={{
