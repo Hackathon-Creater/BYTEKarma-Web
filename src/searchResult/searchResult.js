@@ -1,22 +1,25 @@
-import React, { Component, json } from 'react';
+import React, { Component, json,useState } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import styled from 'styled-components';
-import { Form, Button, FormGroup, FormControl, ControlLabel, Accordion, Card, Col } from "react-bootstrap";
+import { Form, Button, FormGroup, FormControl, ControlLabel, Accordion, Card, Col,Modal } from "react-bootstrap";
 import axios from 'axios';
 import { Bar, Doughnut, Line, Pie, HorizontalBar } from "react-chartjs-2";
 
 
 
 class searchResult extends Component {
-
+    
     constructor(props) {
         super(props)
+
+       
         this.state = {
             myObjStr: JSON.parse(localStorage.getItem("searchResult")),
             obj: [Object],
             spendingDetails:JSON.parse(localStorage.getItem("spendingDetails")),
             rowsCustomerVitals : [],
-            rowsCustomerSpend : []
+            rowsCustomerSpend : [],
+            isOpen:false
         }
         this.boundryArea = {
             boundryAreadata: {
@@ -229,7 +232,14 @@ class searchResult extends Component {
     render() {
         console.log("------------Details-----------");
         let spendingDetails=JSON.parse(localStorage.getItem("spendingDetails"));
-       
+      
+        let carePackageDetailsData=JSON.parse(localStorage.getItem("carePackageDetails"));;
+        const handleClose = () => this.setState({
+            isOpen:false
+        });
+        const handleShow = () => this.setState({
+            isOpen:true
+        });
         
         return (
             //     <div class="container-fluid sp" style={{ marginTop: '-0%', marginBottom: '2%', marginLeft: '2%', width: '96%' }}>
@@ -252,10 +262,56 @@ class searchResult extends Component {
             // </div>
 
             <div class="container-fluid sp" style={{ marginTop: '2%', marginBottom: '2%', marginLeft: '3%', width: '96%', height: 'auto' }}>
+          
+      <Modal show={this.state.isOpen} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Recommended Package</Modal.Title>
+          <br></br>
+         
+        </Modal.Header>
+        <Modal.Body>
+        <strong>Care Package Name: {carePackageDetailsData.name}</strong>
+        <br></br>
+        <br></br>
+            {carePackageDetailsData.description}
+            
+            </Modal.Body>
+        <Modal.Footer>
+          <Button variant="danger" onClick={handleClose}>
+            Close
+          </Button>
+          
+        </Modal.Footer>
+      </Modal>
             <div style={{ marginTop: '3%', marginLeft: '1%' }}>
-               
-                <h5> Customer Details</h5>
+            <div class="row" >
+                        <div class="col-md-2">
+                        <h5> Customer Details</h5>
+                            </div>
+                            <div class="col-md-6"></div>
+                            <div class="col-md-2">  
+                            {/* <Button  variant="outline-danger" size="lg" style={{
+   marginTop:'7%',
+    width: '50%',
+   float: 'right',
+   marginRight: '-54%'
+}} active onClick={this.openPackageModel}> 
+                        Package
+                </Button> */}
+                  <Button variant="danger" class="btnPackage" style={{width:'70%'}}  onClick={handleShow}>
+                <strong>Recommended Package</strong>  
+      </Button>
+                </div>
+
+                <div class="col-md-2">
+                <Button variant="danger" class="btnPackage"style={{width:'70%'}} onClick={handleShow}>
+                <strong>Send Mail to Customer</strong>
+      </Button>
                 
+                </div>
+                            </div>
+                
+               
                 <fieldset class="border p-4">
                     <legend class="w-auto">User Details</legend>
                     <div class="row" >

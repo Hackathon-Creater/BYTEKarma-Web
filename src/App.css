@@ -7141,6 +7141,12 @@ h3 {
 .text-white {
     color: #fff
 }
+.btnPackage{
+    margin-top:7%;
+    width: 50%;
+   float: right,;
+   margin-right: -54%
+}
 .text-blue {
     color: blue
 }

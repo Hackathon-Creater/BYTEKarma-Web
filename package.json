@@ -24,6 +24,7 @@
     "react-bootstrap-table": "^4.3.1",
     "react-chartjs-3": "^2.7.7",
     "react-dom": "^16.13.1",
+    "react-popup": "^0.10.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",
     "react-simple-sidenav": "^2.0.0",
